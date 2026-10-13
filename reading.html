@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b0b0e"><meta name="description" content="王振 WZ 的多页面交互式个人数字名片。探索 INTJ、八个人格维度、兴趣和思考。"><title>阅读知识档案 · WZ. Personal Archive</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%23111115'/%3E%3Ctext x='10' y='44' fill='%23e8dbc6' font-family='Georgia' font-size='35'%3EW%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/music.css"><link rel="stylesheet" href="assets/reading.css"></head>
+<body data-page="reading.html"><a class="skip" href="#main">跳转到主要内容</a><div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+<header class="header"><div class="header-inner"><a class="brand" href="index.html" aria-label="WZ. 返回首页">WZ<span>.</span><small>PERSONAL ARCHIVE</small></a><nav class="desktop-nav" aria-label="主导航"><a href="index.html" class="">首页</a><a href="identity.html" class="">八维人格</a><a href="atlas.html" class="">兴趣地图</a><a href="footprints.html">城市足迹</a><a href="dialog.html" class="">观点互动</a><a href="ideal-life.html" class="is-active">理想生活 <span>走进向往的日常</span></a><a href="notes.html" class="">生活档案</a><a href="connect.html" class="">联系我</a></nav><button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="mobileNav">菜单 <span aria-hidden="true">☰</span></button></div></header>
+<nav id="mobileNav" class="mobile-nav" aria-label="移动端导航" hidden><a href="index.html">首页 <span>个人首页</span></a><a href="identity.html">八维人格 <span>八种性格维度</span></a><a href="atlas.html">兴趣地图 <span>探索兴趣领域</span></a><a href="footprints.html">城市足迹 <span>我的旅行地图</span></a><a href="dialog.html">观点互动 <span>交流与选择</span></a><a href="ideal-life.html">理想生活 <span>走进向往的日常</span></a><a href="notes.html">生活档案 <span>学习与生活</span></a><a href="connect.html">联系我 <span>社交方式</span></a></nav>
+
+<main id="main" class="library-main">
+  <section class="library-hero wrap">
+    <a href="ideal-life.html" class="library-return">← 返回理想生活 · 阅读角</a>
+    <div class="library-hero-kicker">WZ. / PERSONAL READING ARCHIVE <span class="library-star">✧</span> IDEAS WORTH EXPLORING</div>
+    <div class="library-hero-grid">
+      <div><h1>阅读，<em>不止于翻页。</em></h1><p>从一本书出发，走进章节、概念、运行机制和生活中的例子。与其记住很多漂亮句子，我更想知道一个观点<strong>为什么成立、在什么条件下不成立。</strong></p></div>
+      <div class="library-hero-signature"><b>03</b><span>BOOKS IN MY LIBRARY</span><small>书本是入口，思考才是目的。</small></div>
+    </div>
+    <div class="library-route-legend"><span>01 · 选择书籍</span><i>→</i><span>02 · 进入目录</span><i>→</i><span>03 · 选择知识点</span><i>→</i><span>04 · 拆解与应用</span></div>
+  </section>
+  <section class="library-workspace wrap" aria-label="三本书知识探索系统">
+    <aside class="library-sidebar">
+      <div class="library-side-head">KNOWLEDGE INDEX <span>· WZ.</span></div>
+      <button class="library-home-tab" id="libraryHome" type="button">⌂ &nbsp;我的三本书 <span>↗</span></button>
+      <div id="librarySideBooks" class="library-side-books"></div>
+      <div class="library-side-progress"><small>MY KNOWLEDGE MAP</small><strong id="libraryTotalProgress">0 / 120 已掌握</strong><div class="library-progress-track"><div id="libraryProgressFill"></div></div><p>点击知识点的「标记已掌握」，下次打开会保留你的学习进度。</p></div>
+      <a href="ideal-life.html" class="library-side-return">← 返回我的理想生活</a>
+    </aside>
+    <div class="library-content-area">
+      <div class="library-topbar"><div class="library-breadcrumb" id="libraryBreadcrumb" aria-label="阅读路径"></div><span id="libraryLevel" class="library-level">LEVEL 01 / BOOKS</span></div>
+      <div class="library-searchbar"><span aria-hidden="true">⌕</span><input id="librarySearch" type="search" placeholder="搜索章节、知识点或概念…" autocomplete="off" aria-label="搜索三本书的目录及知识点"/><kbd>/</kbd></div>
+      <div id="librarySearchResults" class="library-search-results" hidden></div>
+      <div id="libraryContent" class="library-content" aria-live="polite"></div>
+    </div>
+  </section>
+  <section class="library-footer-note wrap"><span>NOT A SUMMARY MACHINE.</span><p>这是一份按书籍目录组织的个人主题知识笔记，概念与案例由本站重新归纳，不是原书全文，也不是逐字复刻。书目结构参考不同版本，具体译名可能略有差异。</p></section>
+</main>
+<footer class="footer"><div class="wrap footer-grid"><div><a class="brand footer-brand" href="index.html">WZ<span>.</span></a><p>理性求知，自由生长。<br>一个持续更新的个人数字档案。</p><div class="footer-contact"><a href="mailto:nzj64676@gmail.com" aria-label="通过电子邮件联系王振">邮箱 ↗</a><button type="button" data-copy="wz389272188" data-copy-label="复制微信号">微信：wz389272188 <span aria-hidden="true">⧉</span></button></div></div><div class="footer-links"><a href="index.html">首页 ↗</a><a href="identity.html">八维人格 ↗</a><a href="atlas.html">兴趣地图 ↗</a><a href="footprints.html">城市足迹 ↗</a><a href="dialog.html">观点互动 ↗</a><a href="ideal-life.html">理想生活 ↗</a><a href="notes.html">生活档案 ↗</a><a href="connect.html">联系我 ↗</a></div><div class="footer-end">MADE TO BE EXPLORED.<br>© 2026 WZ.<br>NOT A RESUME. A PERSON.</div></div></footer><script defer src="assets/app.js"></script><script defer src="assets/music.js"></script><script defer src="assets/reading-library.js"></script><script defer src="assets/reading.js"></script></body></html>

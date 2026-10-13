@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#0b0b0e" name="theme-color"/><meta content="王振 WZ 的多页面交互式个人数字名片。探索 INTJ、八个人格维度、兴趣和思考。" name="description"/><title>互动兴趣地图 · WZ. Personal Archive</title><link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%23111115'/%3E%3Ctext x='10' y='44' fill='%23e8dbc6' font-family='Georgia' font-size='35'%3EW%3C/text%3E%3C/svg%3E" rel="icon"/><link href="assets/style.css" rel="stylesheet"/><link href="assets/atlas-v7.css" rel="stylesheet"/><link href="assets/music.css" rel="stylesheet"/></head>
+<body data-page="atlas.html"><a class="skip" href="#main">跳转到主要内容</a><div aria-hidden="true" class="reading-progress" id="readingProgress"></div>
+<header class="header"><div class="header-inner"><a aria-label="WZ. 返回首页" class="brand" href="index.html">WZ<span>.</span><small>PERSONAL ARCHIVE</small></a><nav aria-label="主导航" class="desktop-nav"><a class="" href="index.html">首页</a><a class="" href="identity.html">八维人格</a><a class="is-active" href="atlas.html">兴趣地图</a><a href="footprints.html">城市足迹</a><a class="" href="dialog.html">观点互动</a><a href="ideal-life.html">理想生活</a><a class="" href="notes.html">生活档案</a><a class="" href="connect.html">联系我</a></nav><button aria-controls="mobileNav" aria-expanded="false" class="menu-button" id="menuButton">菜单 <span aria-hidden="true">☰</span></button></div></header>
+<nav aria-label="移动端导航" class="mobile-nav" hidden="" id="mobileNav"><a href="index.html">首页 <span>个人首页</span></a><a href="identity.html">八维人格 <span>八种性格维度</span></a><a href="atlas.html">兴趣地图 <span>探索兴趣领域</span></a><a href="footprints.html">城市足迹 <span>我的旅行地图</span></a><a href="dialog.html">观点互动 <span>交流与选择</span></a><a href="ideal-life.html">理想生活 <span>走进向往的日常</span></a><a href="notes.html">生活档案 <span>学习与生活</span></a><a href="connect.html">联系我 <span>社交方式</span></a></nav>
+<main class="atlas-v7" id="main">
+<section class="wrap atlas-hero" id="top">
+<div class="breadcrumb"><a href="index.html">首页</a> / INTEREST ATLAS / VOL. 02</div>
+<div class="atlas-hero-grid">
+<div>
+<div class="overline">THE ATLAS OF MY CURIOSITY — 2026</div>
+<h1 class="display atlas-headline">我的兴趣，<br/><em>从来不是孤岛。</em></h1>
+<p class="atlas-lead">从一个数学问题出发，可能抵达工程；从一次跑步训练出发，也可能开始思考反馈机制。<strong>点击这张地图，沿着我的好奇心走一圈。</strong></p>
+<div class="atlas-hero-actions"><a class="arrowlink primary" href="#explorer">开始探索地图 <span>↓</span></a><a class="arrowlink secondary" href="#journeys">选择一条探索路线 ↗</a></div>
+</div>
+<div aria-hidden="true" class="atlas-intro-mark"><span class="mark-ring m1"></span><span class="mark-ring m2"></span><span class="mark-center">✳</span><span class="mark-note">CURIOSITY<br/>HAS NO<br/>FIXED BORDER.</span></div>
+</div>
+<div aria-label="兴趣地图概览" class="atlas-kpis"><div><b>06</b><span>知识领域<br/>DOMAINS</span></div><div><b>03</b><span>探索路线<br/>CURATED PATHS</span></div><div><b>∞</b><span>持续更新<br/>ALWAYS CURIOUS</span></div></div>
+</section>
+<section aria-labelledby="exploreHeading" class="wrap atlas-explorer-section" id="explorer">
+<div class="atlas-section-row"><div><div class="overline">01 / THE INTERACTIVE CONSTELLATION</div><h2 class="display" id="exploreHeading">点亮我的兴趣星图<span class="gold-dot">.</span></h2><p>自由选择一个节点，探索相关经历、专业概念和它与其他领域的联系。</p></div>
+<div class="atlas-progress-wrap"><span aria-live="polite" id="atlasVisitedText">已探索 0 / 6</span><div class="atlas-progress-track"><span id="atlasProgressBar" style="width:0%"></span></div></div></div>
+<div class="atlas-toolbar"><div class="atlas-hint">✦ 点击节点切换内容 · <span class="desktop-hint">悬停预览 · 键盘方向键切换</span><span class="mobile-hint">也可以跟随下方主题路线</span></div><div class="atlas-tool-btns"><button id="atlasSurprise" type="button">✳ 随机探索</button><button id="atlasClear" type="button">↺ 重置足迹</button></div></div>
+<div class="atlas-stage">
+<div class="atlas-cosmos-wrap">
+<div aria-label="六大可交互兴趣领域" class="atlas-cosmos" id="atlasCosmos">
+<span aria-hidden="true" class="cosmos-ring ring1"></span><span aria-hidden="true" class="cosmos-ring ring2"></span><span aria-hidden="true" class="cosmos-ring ring3"></span>
+<svg aria-hidden="true" class="atlas-lines" id="atlasLines" preserveaspectratio="none"></svg>
+<button aria-label="点击中心随机探索" class="atlas-hub" id="atlasHub" title="随机探索一个兴趣领域" type="button"><span>WZ<span class="hub-dot">.</span></span><small>LEARN / EXPLORE</small><i>✳</i></button>
+<button aria-pressed="true" class="atlas-node" data-atlas-point="math" style="--nx:50%;--ny:9%"><span class="node-icon">∑</span><span class="node-copy"><b>数学工程</b><small>MATHEMATICS</small></span><span aria-hidden="true" class="seen-mark">✓</span></button>
+<button aria-pressed="false" class="atlas-node" data-atlas-point="psych" style="--nx:85%;--ny:29%"><span class="node-icon">◎</span><span class="node-copy"><b>心理行为</b><small>PSYCHOLOGY</small></span><span aria-hidden="true" class="seen-mark">✓</span></button>
+<button aria-pressed="false" class="atlas-node" data-atlas-point="social" style="--nx:85%;--ny:72%"><span class="node-icon">⚖</span><span class="node-copy"><b>社会制度</b><small>SOCIETY</small></span><span aria-hidden="true" class="seen-mark">✓</span></button>
+<button aria-pressed="false" class="atlas-node" data-atlas-point="finance" style="--nx:50%;--ny:91%"><span class="node-icon">↗</span><span class="node-copy"><b>金融全球化</b><small>FINANCE</small></span><span aria-hidden="true" class="seen-mark">✓</span></button>
+<button aria-pressed="false" class="atlas-node" data-atlas-point="movement" style="--nx:15%;--ny:72%"><span class="node-icon">◷</span><span class="node-copy"><b>运动训练</b><small>TRAINING</small></span><span aria-hidden="true" class="seen-mark">✓</span></button>
+<button aria-pressed="false" class="atlas-node" data-atlas-point="ai" style="--nx:15%;--ny:29%"><span class="node-icon">✳</span><span class="node-copy"><b>AI 与技术</b><small>DIGITAL</small></span><span aria-hidden="true" class="seen-mark">✓</span></button>
+</div>
+<div class="atlas-cosmos-foot"><span><i class="legend-lit"></i> 已探索</span><span><i class="legend-active"></i> 当前领域</span><span id="atlasHoverInfo">从任意节点开始。</span></div>
+</div>
+<article aria-labelledby="atlasFocusTitle" class="atlas-focus" id="atlasFocus">
+<div class="atlas-focus-top"><span id="atlasFocusSequence">FIELD 01 / 06</span><span class="atlas-live-dot">● 正在探索</span></div>
+<div class="atlas-focus-kicker" id="atlasFocusEn">MATHEMATICS &amp; ENGINEERING</div>
+<div class="atlas-focus-title-row"><h3 id="atlasFocusTitle">数学与工程</h3><span aria-hidden="true" class="atlas-focus-symbol" id="atlasFocusSymbol">∑</span></div>
+<p class="atlas-focus-hook" id="atlasFocusHook">我喜欢拆解公式，不只记住结果。</p>
+<div aria-label="领域介绍角度" class="atlas-tablist" role="tablist"><button aria-selected="true" class="atlas-tab" data-atlas-tab="quick" role="tab" type="button">速览</button><button aria-selected="false" class="atlas-tab" data-atlas-tab="story" role="tab" type="button">真实经历</button><button aria-selected="false" class="atlas-tab" data-atlas-tab="links" role="tab" type="button">关联与概念</button></div>
+<div aria-live="polite" class="atlas-content" id="atlasContent" role="tabpanel"></div>
+<div class="atlas-focus-footer"><span class="atlas-focus-status" id="atlasFocusStatus">01 / 06</span><button id="atlasNext" type="button">探索下一领域 <span>↗</span></button></div>
+</article>
+</div>
+</section>
+<section aria-labelledby="journeyHeading" class="atlas-routes-band" id="journeys"><div class="wrap">
+<div class="atlas-section-row"><div><div class="overline">02 / CONNECT THE DOTS</div><h2 class="display" id="journeyHeading">不妨换一条路，<br/>重新认识我。</h2></div><p class="atlas-routes-intro">我的兴趣有时看起来毫不相关，实际却被一个个问题连接在一起。试试下面三条探索路线，每条都可以一步步走完。</p></div>
+<div class="journey-grid" id="journeyGrid">
+<button class="journey-card" data-journey="logic" type="button"><span class="journey-no">PATH 01 / THINK</span><span class="journey-emblem">⌘</span><strong>从公式，到思维</strong><small>数学工程 → AI 技术 → 心理行为</small><span class="journey-foot">沿着推理与认知走一圈 <b>↗</b></span></button>
+<button class="journey-card" data-journey="society" type="button"><span class="journey-no">PATH 02 / WORLD</span><span class="journey-emblem">◇</span><strong>从个体，到社会</strong><small>心理行为 → 社会制度 → 金融全球化</small><span class="journey-foot">看见行为背后的复杂系统 <b>↗</b></span></button>
+<button class="journey-card" data-journey="action" type="button"><span class="journey-no">PATH 03 / ACTION</span><span class="journey-emblem">↗</span><strong>从目标，到行动</strong><small>运动训练 → 数学工程 → AI 技术</small><span class="journey-foot">追踪我如何用反馈改进日常 <b>↗</b></span></button>
+</div>
+<div class="journey-active" hidden="" id="journeyActive"><div><div class="overline">YOUR EXPLORATION ROUTE</div><h3 id="journeyActiveTitle">从公式，到思维</h3><p id="journeyActiveDesc"></p></div><div class="journey-progress-steps" id="journeySteps"></div><div class="journey-buttons"><button id="journeyPrev" type="button">← 上一站</button><button id="journeyNext" type="button">下一站 →</button><button id="journeyStop" type="button">结束路线 ×</button></div></div>
+</div></section>
+<section aria-labelledby="readingTitle" class="wrap atlas-reading"><div class="atlas-section-row"><div><div class="overline">03 / THE BOOKS BEHIND THE QUESTIONS</div><h2 class="display" id="readingTitle">我的阅读线索。</h2></div><p class="atlas-routes-intro">不只罗列书名。点击书籍，看看它引出了我怎样的问题，以及与兴趣地图上的哪个领域相连。</p></div>
+<div class="atlas-reading-layout"><div aria-label="我的阅读书目" class="reading-books" role="group">
+<button class="reading-book active" data-book="slow" type="button"><span>01</span><strong>思考，快与慢</strong><small>Daniel Kahneman</small><b>↗</b></button>
+<button class="reading-book" data-book="crowd" type="button"><span>02</span><strong>乌合之众</strong><small>Gustave Le Bon</small><b>↗</b></button>
+<button class="reading-book" data-book="influence" type="button"><span>03</span><strong>影响力</strong><small>Robert Cialdini · 阅读中</small><b>↗</b></button>
+</div><div aria-live="polite" class="reading-detail" id="readingDetail"></div></div>
+</section>
+<section class="wrap atlas-end"><div><span class="overline">BEYOND THE MAP</span><h2 class="display">兴趣是入口，<br/><em>思考才是旅程。</em></h2><p>如果你对我的兴趣有些了解了，还可以看看它们怎样塑造我的学习习惯、生活方式和价值判断。</p><div class="atlas-hero-actions"><a class="arrowlink primary" href="notes.html">进入生活档案 ↗</a><a class="arrowlink secondary" href="identity.html">探索八维人格 ↗</a></div></div><img alt="王振个人肖像" loading="lazy" src="assets/portrait-small.webp"/></section>
+</main><footer class="footer"><div class="wrap footer-grid"><div><a class="brand footer-brand" href="index.html">WZ<span>.</span></a><p>理性求知，自由生长。<br/>一个持续更新的个人数字档案。</p><div class="footer-contact"><a aria-label="通过电子邮件联系王振" href="mailto:nzj64676@gmail.com">邮箱 ↗</a><button data-copy="wz389272188" data-copy-label="复制微信号" type="button">微信：wz389272188 <span aria-hidden="true">⧉</span></button></div></div><div class="footer-links"><a href="index.html">首页 ↗</a><a href="identity.html">八维人格 ↗</a><a href="atlas.html">兴趣地图 ↗</a><a href="footprints.html">城市足迹 ↗</a><a href="dialog.html">观点互动 ↗</a><a href="ideal-life.html">理想生活 ↗</a><a href="notes.html">生活档案 ↗</a><a href="connect.html">联系我 ↗</a></div><div class="footer-end">MADE TO BE EXPLORED.<br/>© 2026 WZ.<br/>NOT A RESUME. A PERSON.</div></div></footer><script defer="" src="assets/app.js"></script><script defer="" src="assets/atlas-v7.js"></script><script defer="" src="assets/music.js"></script></body></html>

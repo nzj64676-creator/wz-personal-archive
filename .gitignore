@@ -1,0 +1,16 @@
+# Local deployment state, credentials, and tool dependencies
+.edgeone/
+.openai/
+.vercel/
+.netlify/
+.wrangler/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+node_modules/
+.DS_Store
+Thumbs.db
+*.log

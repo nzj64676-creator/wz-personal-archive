@@ -1,0 +1,86 @@
+/* WZ original ambient audio interaction — no external dependencies */
+.wz-audio-dock{--aw:#e0c29c;--ab:#80b7e6;position:fixed;left:20px;bottom:20px;z-index:9500;display:flex;align-items:center;gap:9px;padding:8px 11px 8px 8px;border:1px solid rgba(204,188,163,.29);border-radius:99px;background:rgba(12,15,23,.88);box-shadow:0 12px 45px rgba(0,0,0,.47),inset 0 0 16px rgba(98,148,202,.045);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);color:#eae6e2;font:12px/1.3 system-ui,'Microsoft YaHei',sans-serif;max-width:min(335px,calc(100vw - 28px));transition:border-color .2s,box-shadow .2s}
+.wz-audio-dock:hover,.wz-audio-dock:focus-within{border-color:rgba(219,183,128,.64);box-shadow:0 13px 52px #0009,0 0 18px rgba(87,167,220,.14)}
+.wz-audio-toggle{height:34px;width:34px;flex:none;display:flex;align-items:center;justify-content:center;border:1px solid rgba(221,189,140,.3);border-radius:50%;background:linear-gradient(145deg,rgba(216,184,140,.25),rgba(32,42,65,.65));color:#ffe3b5;cursor:pointer;font-size:18px;line-height:1}
+.wz-audio-toggle:hover{background:rgba(214,182,138,.26)}
+.wz-audio-details{display:flex;flex-direction:column;gap:2px;min-width:0;max-width:124px}
+.wz-audio-title{font-size:10px;letter-spacing:.12em;font-weight:750;color:#efdfc8;white-space:nowrap}
+.wz-audio-state{font-size:10px;color:#9fa9b6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wz-audio-bars{display:flex;align-items:center;gap:3px;height:17px;min-width:22px}
+.wz-audio-bars b{width:2px;height:5px;background:#ac9476;border-radius:5px;opacity:.35}
+.wz-audio-dock.is-playing .wz-audio-bars b{background:#8fcef9;opacity:1;animation:wz-audio-bars 1s ease-in-out infinite alternate}
+.wz-audio-dock.is-playing .wz-audio-bars b:nth-child(2){animation-delay:-.55s}.wz-audio-dock.is-playing .wz-audio-bars b:nth-child(3){animation-delay:-.15s}.wz-audio-dock.is-playing .wz-audio-bars b:nth-child(4){animation-delay:-.72s}
+@keyframes wz-audio-bars{from{height:4px}to{height:16px}}
+.wz-audio-volume{width:62px;min-width:40px;height:24px;accent-color:#cdb18a;cursor:pointer;outline-offset:3px}
+.wz-audio-volume-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.wz-audio-entrance{position:fixed;inset:0;z-index:11000;background:radial-gradient(ellipse at 50% 34%,rgba(60,94,148,.18),transparent 50%),rgba(4,6,11,.96);display:grid;place-items:center;color:#eee5da;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);padding:24px;overflow:auto}
+.wz-audio-entrance[hidden]{display:none!important}
+.wz-entrance-card{text-align:center;max-width:510px;width:100%;padding:50px 18px;animation:wz-entrance-reveal .8s ease both}
+@keyframes wz-entrance-reveal{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+.wz-entrance-kicker{font:600 11px/1.5 system-ui,sans-serif;color:#c5a984;letter-spacing:.29em}
+.wz-entrance-orbit{width:132px;height:132px;margin:34px auto 26px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(219,181,123,.30);box-shadow:0 0 0 21px rgba(86,130,194,.045),0 0 0 43px rgba(219,181,123,.026),inset 0 0 32px rgba(219,181,123,.07);position:relative;font:58px/1 Georgia,serif;color:#ddc39f}
+.wz-entrance-orbit:before,.wz-entrance-orbit:after{content:'';position:absolute;inset:-12px;border:1px dashed rgba(123,179,226,.25);border-radius:50%;animation:wz-slow-rotate 38s linear infinite}.wz-entrance-orbit:after{inset:-28px;border-color:rgba(224,182,120,.17);animation-duration:55s;animation-direction:reverse}
+@keyframes wz-slow-rotate{to{transform:rotate(360deg)}}
+.wz-entrance-card h2{font-family:Georgia,'Songti SC','SimSun',serif;font-size:clamp(36px,6vw,56px);line-height:1.17;font-weight:500;letter-spacing:-.045em;margin:16px 0}
+.wz-entrance-card p{color:#b0abb2;font-size:14px;line-height:1.9;letter-spacing:.02em;margin:0 auto 27px;max-width:330px}
+.wz-entrance-actions{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}
+.wz-entrance-actions button{font:600 12px/1.5 system-ui,'Microsoft YaHei',sans-serif;cursor:pointer;border-radius:99px;padding:13px 23px;min-height:46px;transition:transform .2s,border-color .2s}
+.wz-entrance-actions button:hover{transform:translateY(-2px)}
+.wz-entrance-start{background:#e3caa6;color:#191519;border:1px solid #e3caa6}
+.wz-entrance-skip{background:transparent;color:#cec6c1;border:1px solid #4c4850}
+.wz-entrance-foot{display:block;font-size:10px;color:#817d85;letter-spacing:.08em;margin-top:21px}
+@media(max-width:600px){.wz-audio-dock{left:12px;bottom:max(12px,env(safe-area-inset-bottom));padding:6px 9px 6px 6px;gap:7px}.wz-audio-details{max-width:100px}.wz-audio-volume{width:42px}.wz-entrance-card{padding:24px 0}}
+@media(prefers-reduced-motion:reduce){.wz-audio-bars b,.wz-entrance-orbit:before,.wz-entrance-orbit:after,.wz-entrance-card{animation:none!important}.wz-audio-dock,.wz-entrance-actions button{transition:none!important}}
+
+/* V10.3 双钢琴曲播放器 */
+.wz-audio-dock{max-width:min(475px,calc(100vw - 26px));gap:8px;overflow:visible}
+.wz-audio-controls{display:flex;align-items:center;gap:5px;flex:none}
+.wz-audio-skip,.wz-audio-list{height:28px;width:26px;flex:none;border:1px solid rgba(214,183,143,.23);border-radius:10px;background:rgba(21,28,41,.85);color:#eed8ba;cursor:pointer;font:20px/1 sans-serif}
+.wz-audio-list{font-size:15px;width:28px}
+.wz-audio-skip:hover,.wz-audio-list:hover{background:#29364c}
+.wz-audio-details{max-width:142px;gap:1px}
+.wz-audio-kicker{font-size:9px;color:#83b7da;letter-spacing:.13em;font-weight:650}
+.wz-audio-title{font-size:11px;letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wz-playlist{position:absolute;bottom:calc(100% + 13px);left:0;width:min(325px,calc(100vw - 28px));padding:13px;background:rgba(12,16,25,.97);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border:1px solid rgba(202,175,132,.35);border-radius:17px;box-shadow:0 20px 60px #000b;display:grid;gap:8px}
+.wz-playlist[hidden]{display:none!important}
+.wz-playlist-head{color:#d9c29f;letter-spacing:.15em;font-size:10px;margin:4px 3px 3px}
+.wz-playlist button{display:flex;justify-content:space-between;gap:9px;text-align:left;align-items:center;background:rgba(35,40,55,.55);border:1px solid #3f4451;border-radius:10px;color:#f1e3d2;padding:10px 12px;cursor:pointer;font:600 12px/1.2 system-ui,'Microsoft YaHei',sans-serif}
+.wz-playlist button.active{border-color:#d3ae7d;background:rgba(91,73,58,.48)}
+.wz-playlist button small{font-size:10px;color:#acafbf;font-weight:400}
+.wz-playlist-foot{display:block;font-size:9px;color:#a3a6ad;line-height:1.7;margin:2px 3px 4px}
+@media(max-width:600px){.wz-audio-dock{gap:5px;padding:6px}.wz-audio-controls{gap:3px}.wz-audio-skip{width:20px;height:26px;font-size:16px}.wz-audio-toggle{width:30px;height:30px}.wz-audio-details{max-width:90px}.wz-audio-title{font-size:10px}.wz-audio-kicker{font-size:8px}.wz-audio-bars{display:none}.wz-audio-volume{width:36px}.wz-audio-list{width:25px}}
+
+/* V10.4 — official audio source links (not redistribution or re-hosting) */
+.wz-official-sources,.wz-entrance-sources{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.wz-official-sources{flex-direction:column;align-items:stretch}
+.wz-official-sources a,.wz-entrance-sources a{color:#d7cfbd;text-decoration:none;border:1px solid rgba(152,169,197,.3);background:rgba(24,35,52,.7);padding:9px 12px;border-radius:10px;font-size:11px;line-height:1.5}
+.wz-official-sources a:hover,.wz-entrance-sources a:hover{color:#fff1d9;border-color:#ddc092;background:#29374b}
+.wz-entrance-sources{margin:23px auto 4px}
+.wz-entrance-foot{line-height:1.7}
+
+/* V10.5: no blocking intro; page always available */
+.wz-audio-entrance{display:none!important}
+
+/* V10.6 · Web-embedded streaming audio */
+.wz-playlist{width:min(380px,calc(100vw - 24px));max-height:min(74vh,620px);overflow-y:auto;overscroll-behavior:contain;scrollbar-color:#5c718e #0b1019}
+.wz-stream-frame-box{border:1px solid rgba(143,167,201,.32);border-radius:12px;background:#131a26;overflow:hidden}
+.wz-stream-frame-box[hidden]{display:none!important}
+#wzSoundCloudPlayer{width:100%;height:166px;border:0;display:block;background:#171d2a}
+.wz-audio-dock .wz-playlist .wz-official-sources{margin-top:2px}
+.wz-playlist-foot{color:#b9b8bb;font-size:10px}
+@media(max-width:600px){.wz-playlist{max-height:70dvh}#wzSoundCloudPlayer{height:166px}}
+
+/* V10.7 · Local piano playlist, loaded from user-provided MP3 files */
+.wz-piano-timeline{display:grid;gap:4px;margin:5px 2px 0}
+#wzMusicSeek{width:100%;height:18px;accent-color:#dfba83;cursor:pointer}
+.wz-piano-times{display:flex;justify-content:space-between;color:#9eafbe;font-size:10px;font-variant-numeric:tabular-nums}
+.wz-audio-title{max-width:143px}
+.wz-playlist .wz-playlist-foot{color:#aeb5c3;font-size:10px}
+.wz-playlist button.active{border-color:#d3ae7d;box-shadow:0 0 17px rgba(103,145,202,.10)}
+@media(max-width:600px){.wz-audio-title{max-width:91px}}
+
+/* V11.2 · Three-track playlist: long bilingual titles wrap inside the list */
+.wz-playlist button[data-track] span{flex:1;min-width:0;white-space:normal;overflow-wrap:anywhere;line-height:1.5}
+.wz-playlist button[data-track] small{flex:none;text-align:right}
+.wz-audio-title{max-width:143px}
+@media(max-width:600px){.wz-audio-title{max-width:91px}}

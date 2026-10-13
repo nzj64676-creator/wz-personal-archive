@@ -1,0 +1,990 @@
+{
+  "initialVisited": [
+    {
+      "id": "yunfu",
+      "name": "云浮",
+      "en": "YUNFU",
+      "province": "广东",
+      "lon": 112.04,
+      "lat": 22.93,
+      "description": "云浮，是我已留下足迹的城市之一。更多旅行故事，等待慢慢补充。",
+      "status": "visited",
+      "date": "",
+      "note": ""
+    },
+    {
+      "id": "yulin",
+      "name": "玉林",
+      "en": "YULIN",
+      "province": "广西",
+      "lon": 110.15,
+      "lat": 22.63,
+      "description": "玉林，是我在广西生活、学习与观察日常的城市。",
+      "status": "visited",
+      "date": "",
+      "note": ""
+    },
+    {
+      "id": "guangzhou",
+      "name": "广州",
+      "en": "GUANGZHOU",
+      "province": "广东",
+      "lon": 113.2644,
+      "lat": 23.1291,
+      "description": "广州对我来说，不只是广东省会和传统大城市，更是一座同时具备地标夜景、现代天际线、体育现场、城市象征与历史建筑层次的综合型城市。",
+      "status": "visited",
+      "date": "",
+      "note": "这次广州相册收录了广州塔、珠江新城夜景、体育场赛事、五羊雕像、海关大楼与一张很有趣味的“捏住广州塔”照片。相比单一打卡，它更像一组由城市地标、现场体验和个人视角共同组成的广州记忆。",
+      "gallery": [
+        {
+          "src": "assets/cities/guangzhou/01-canton-tower-night.webp",
+          "thumb": "assets/cities/guangzhou/01-canton-tower-night.webp",
+          "title": "广州塔夜色",
+          "caption": "夜晚的广州塔和周边场馆灯光一起点亮城市气氛，是这次广州记忆里最直接的地标画面。"
+        },
+        {
+          "src": "assets/cities/guangzhou/02-zhujiang-new-town-night.webp",
+          "thumb": "assets/cities/guangzhou/02-zhujiang-new-town-night.webp",
+          "title": "珠江新城天际线",
+          "caption": "高楼、广场和夜间灯光共同构成广州现代都市的一面，视野开阔而有层次。"
+        },
+        {
+          "src": "assets/cities/guangzhou/03-stadium-track-meet.webp",
+          "thumb": "assets/cities/guangzhou/03-stadium-track-meet.webp",
+          "title": "体育场赛事现场",
+          "caption": "看台上的赛事瞬间，把广州这站的现场感、运动氛围和人群密度一起记录下来。"
+        },
+        {
+          "src": "assets/cities/guangzhou/04-five-goats-statue.webp",
+          "thumb": "assets/cities/guangzhou/04-five-goats-statue.webp",
+          "title": "五羊雕像",
+          "caption": "作为广州最有代表性的城市象征之一，五羊雕像让这组足迹多了一层在地辨识度。"
+        },
+        {
+          "src": "assets/cities/guangzhou/05-custom-house-night.webp",
+          "thumb": "assets/cities/guangzhou/05-custom-house-night.webp",
+          "title": "海关大楼夜景",
+          "caption": "夜色下的欧式建筑立面很有年代感，也让广州这座城市的历史层次更加明显。"
+        },
+        {
+          "src": "assets/cities/guangzhou/06-hand-canton-tower.webp",
+          "thumb": "assets/cities/guangzhou/06-hand-canton-tower.webp",
+          "title": "“捏住”广州塔",
+          "caption": "用手把广州塔框进画面里，是很轻松的一张旅行照片，也给这组城市记录加了一点趣味感。"
+        }
+      ]
+    },
+    {
+      "id": "shenzhen",
+      "name": "深圳",
+      "en": "SHENZHEN",
+      "province": "广东",
+      "lon": 114.0579,
+      "lat": 22.5431,
+      "description": "深圳对我来说，不只是打卡过的一座一线城市，更像一座把会展、法治、全球化、科技感和高速城市节奏压缩在一起的现实样本。这里既有展馆现场的专业氛围，也有海岸线、天际线和傍晚街头带来的城市张力。",
+      "status": "visited",
+      "date": "",
+      "note": "这次深圳足迹里，我记录下了会展中心、法博会现场、海边步道与傍晚街景。相比单纯“去过”，我更想把它当作一座能代表现代城市运行方式的观察样本。",
+      "gallery": [
+        {
+          "src": "assets/cities/shenzhen/02-expo-hall.webp",
+          "thumb": "assets/cities/shenzhen/02-expo-hall.webp",
+          "title": "深圳法博会 · 现场留影",
+          "caption": "在 2026 年深圳法律服务博览会现场留下的一张个人照片。"
+        },
+        {
+          "src": "assets/cities/shenzhen/03-opening-address.webp",
+          "thumb": "assets/cities/shenzhen/03-opening-address.webp",
+          "title": "深圳法博会 · 开幕致辞",
+          "caption": "记录深圳法律服务博览会开幕致辞的现场画面。"
+        },
+        {
+          "src": "assets/cities/shenzhen/04-city-vista.webp",
+          "thumb": "assets/cities/shenzhen/04-city-vista.webp",
+          "title": "会展片区城市视角",
+          "caption": "从高处望向深圳的高楼、会展建筑与广场。"
+        },
+        {
+          "src": "assets/cities/shenzhen/05-bayline.webp",
+          "thumb": "assets/cities/shenzhen/05-bayline.webp",
+          "title": "深圳湾海岸线",
+          "caption": "漫步海岸边，远处的现代建筑形成延绵的天际线。"
+        },
+        {
+          "src": "assets/cities/shenzhen/01-portrait.webp",
+          "thumb": "assets/cities/shenzhen/01-portrait.webp",
+          "title": "深圳晚霞与城市街景",
+          "caption": "粉紫色天空映照繁忙街道，城市里一瞬间的柔和色彩。"
+        },
+        {
+          "src": "assets/cities/shenzhen/07-cube-building.webp",
+          "thumb": "assets/cities/shenzhen/07-cube-building.webp",
+          "title": "傍晚街角 · 几何建筑",
+          "caption": "入夜时的道路、人群和具有几何感的建筑立面。"
+        }
+      ]
+    },
+    {
+      "id": "chengdu",
+      "name": "成都",
+      "en": "CHENGDU",
+      "province": "四川",
+      "lon": 104.0665,
+      "lat": 30.5723,
+      "description": "成都是我已解锁的西南城市之一。相比高速和锋利的城市气质，它更偏向松弛、夜游、生活感与人群流动交织出来的另一种城市体验。",
+      "status": "visited",
+      "date": "",
+      "note": "这次我先放入两张成都夜景照片，画面核心是夜色中的河道、水岸灯光和周边建筑氛围。以后如果你还有街区、美食、地标或人物照片，也可以继续扩成更完整的成都相册。",
+      "gallery": [
+        {
+          "src": "assets/cities/chengdu/01-jinli-river-night-1.webp",
+          "thumb": "assets/cities/chengdu/01-jinli-river-night-1.webp",
+          "title": "成都水岸夜景",
+          "caption": "夜色下的成都水岸灯光很有辨识度，暖色建筑和蓝绿色水面形成强烈反差。"
+        },
+        {
+          "src": "assets/cities/chengdu/02-jinli-river-night-2.webp",
+          "thumb": "assets/cities/chengdu/02-jinli-river-night-2.webp",
+          "title": "成都河道夜色",
+          "caption": "从更纵深的视角看成都夜间河道，流动的水面和两侧灯带让画面很有城市氛围。"
+        }
+      ]
+    },
+    {
+      "id": "chongqing",
+      "name": "重庆",
+      "en": "CHONGQING",
+      "province": "重庆",
+      "lon": 106.5516,
+      "lat": 29.563,
+      "description": "重庆是我已解锁的西南城市之一。相比平面的城市印象，它更像一座建立在高差、江水与密集灯火上的立体样本，到了夜里尤其有辨识度。",
+      "status": "visited",
+      "date": "",
+      "note": "目前重庆相册收录了城市夜景与火锅两种记忆：一张是山城灯火，一张是最有代表性的城市饮食场景。以后如果还有洪崖洞、轻轨、江边步道等照片，也可以继续补全。",
+      "gallery": [
+        {
+          "src": "assets/cities/chongqing/01-night-skyline.webp",
+          "thumb": "assets/cities/chongqing/01-night-skyline.webp",
+          "title": "山城夜景天际线",
+          "caption": "站在高处俯瞰重庆夜景，江面、楼群和灯光一起构成了典型的山城视觉。"
+        },
+        {
+          "src": "assets/cities/chongqing/02-hotpot-memory.webp",
+          "thumb": "assets/cities/chongqing/02-hotpot-memory.webp",
+          "title": "重庆火锅记忆",
+          "caption": "除了夜景，重庆最直观的城市记忆之一就是火锅。它把这座城市的热烈、密度和烟火气浓缩在一张餐桌上。"
+        }
+      ]
+    },
+    {
+      "id": "xining",
+      "name": "西宁",
+      "en": "XINING",
+      "province": "青海",
+      "lon": 101.7782,
+      "lat": 36.6171,
+      "description": "西宁是我探索青海的重要一站。这组照片记录了青海旅途中不同于城市街景的一面：湖泊、花田、远山，以及站在自然风景前的旅行留影。",
+      "status": "visited",
+      "date": "",
+      "note": "相册收录了三张青海旅行照片，作为我从西宁出发、探索青海风光的一部分记录；照片地点不都位于西宁市区。",
+      "gallery": [
+        {
+          "src": "assets/cities/xining/01-qinghai-lake-shore.webp",
+          "thumb": "assets/cities/xining/01-qinghai-lake-shore.webp",
+          "title": "青海湖畔 · 湖光与云影",
+          "caption": "远处的山脉、开阔湖面与浅色湖岸，留下了青海旅行的辽阔感。"
+        },
+        {
+          "src": "assets/cities/xining/02-rapeseed-field.webp",
+          "thumb": "assets/cities/xining/02-rapeseed-field.webp",
+          "title": "高原花田 · 金色与远山",
+          "caption": "金黄色花田延伸至山脚，清朗的天空与起伏山脉让画面显得格外开阔。"
+        },
+        {
+          "src": "assets/cities/xining/03-snow-mountain-viewpoint.webp",
+          "thumb": "assets/cities/xining/03-snow-mountain-viewpoint.webp",
+          "title": "旅途留影 · 山间观景台",
+          "caption": "身着亮色外套，在山间旅行途中留下的人物照片，记录当时的风景与心情。"
+        }
+      ]
+    },
+    {
+      "id": "lanzhou",
+      "name": "兰州",
+      "en": "LANZHOU",
+      "province": "甘肃",
+      "lon": 103.8343,
+      "lat": 36.0611,
+      "description": "兰州，是我到过的西北城市之一。",
+      "status": "visited",
+      "date": "",
+      "note": ""
+    },
+    {
+      "id": "dunhuang",
+      "name": "敦煌",
+      "en": "DUNHUANG",
+      "province": "甘肃",
+      "lon": 94.6616,
+      "lat": 40.1421,
+      "description": "敦煌，是我在西北旅行中印象非常鲜明的一站。广阔、干燥、明亮，既有强烈的地貌色彩，也有典型的大西北气质。",
+      "status": "visited",
+      "date": "",
+      "note": "目前敦煌相册收录了两张照片：一张是我在彩色山地观景平台的留影，一张是带有强烈层理色彩的地貌全景。它更像一站地貌记忆，而不只是打卡坐标。"
+    },
+    {
+      "id": "xian",
+      "name": "西安",
+      "en": "XI’AN",
+      "province": "陕西",
+      "lon": 108.9398,
+      "lat": 34.3416,
+      "description": "西安对我来说，不只是“去过的一座古都”，而是一座把历史遗址、博物馆体验、城市夜色与交通节点都连接起来的城市。",
+      "status": "visited",
+      "date": "",
+      "note": "这组照片里既有兵马俑遗址与展厅，也有大唐不夜城和西安站。比起单纯打卡，它更像一次把历史现场与城市空间放在一起观察的经历。",
+      "gallery": [
+        {
+          "src": "assets/cities/xian/01-datang-everbright-city.webp",
+          "thumb": "assets/cities/xian/01-datang-everbright-city.webp",
+          "title": "大唐不夜城夜色",
+          "caption": "夜晚的大唐不夜城灯火通明，历史意象和当代商业空间叠在一起。"
+        },
+        {
+          "src": "assets/cities/xian/02-pit-view.webp",
+          "thumb": "assets/cities/xian/02-pit-view.webp",
+          "title": "兵马俑遗址坑位近景",
+          "caption": "在遗址博物馆内部近距离看考古坑位与陶俑陈列。"
+        },
+        {
+          "src": "assets/cities/xian/03-hall-panorama.webp",
+          "thumb": "assets/cities/xian/03-hall-panorama.webp",
+          "title": "兵马俑一号坑全景",
+          "caption": "大型展厅里的兵马俑阵列，能直观看到规模感与历史厚度。"
+        },
+        {
+          "src": "assets/cities/xian/04-xian-station.webp",
+          "thumb": "assets/cities/xian/04-xian-station.webp",
+          "title": "西安站夜晚",
+          "caption": "夜里的西安站，是这次城市到达与离开的记忆节点。"
+        }
+      ]
+    },
+    {
+      "id": "zhanjiang",
+      "name": "湛江",
+      "en": "ZHANJIANG",
+      "province": "广东",
+      "lon": 110.3594,
+      "lat": 21.2707,
+      "description": "湛江，是我已经去过的广东城市之一。",
+      "status": "visited",
+      "date": "",
+      "note": ""
+    },
+    {
+      "id": "zhaoqing",
+      "name": "肇庆",
+      "en": "ZHAOQING",
+      "province": "广东",
+      "lon": 112.4651,
+      "lat": 23.0472,
+      "description": "肇庆，最新补充进入足迹档案的一座广东城市。",
+      "status": "visited",
+      "date": "",
+      "note": ""
+    }
+  ],
+  "candidateCities": [
+    {
+      "name": "北京",
+      "province": "北京",
+      "lon": 116.4074,
+      "lat": 39.9042
+    },
+    {
+      "name": "天津",
+      "province": "天津",
+      "lon": 117.2,
+      "lat": 39.1333
+    },
+    {
+      "name": "上海",
+      "province": "上海",
+      "lon": 121.4737,
+      "lat": 31.2304
+    },
+    {
+      "name": "南京",
+      "province": "江苏",
+      "lon": 118.7969,
+      "lat": 32.0603
+    },
+    {
+      "name": "苏州",
+      "province": "江苏",
+      "lon": 120.5853,
+      "lat": 31.2989
+    },
+    {
+      "name": "无锡",
+      "province": "江苏",
+      "lon": 120.3119,
+      "lat": 31.4912
+    },
+    {
+      "name": "常州",
+      "province": "江苏",
+      "lon": 119.9741,
+      "lat": 31.8112
+    },
+    {
+      "name": "徐州",
+      "province": "江苏",
+      "lon": 117.2841,
+      "lat": 34.2058
+    },
+    {
+      "name": "扬州",
+      "province": "江苏",
+      "lon": 119.421,
+      "lat": 32.3932
+    },
+    {
+      "name": "杭州",
+      "province": "浙江",
+      "lon": 120.1551,
+      "lat": 30.2741
+    },
+    {
+      "name": "宁波",
+      "province": "浙江",
+      "lon": 121.5503,
+      "lat": 29.8746
+    },
+    {
+      "name": "温州",
+      "province": "浙江",
+      "lon": 120.6994,
+      "lat": 27.9938
+    },
+    {
+      "name": "嘉兴",
+      "province": "浙江",
+      "lon": 120.7556,
+      "lat": 30.7461
+    },
+    {
+      "name": "金华",
+      "province": "浙江",
+      "lon": 119.6495,
+      "lat": 29.0895
+    },
+    {
+      "name": "合肥",
+      "province": "安徽",
+      "lon": 117.2272,
+      "lat": 31.8206
+    },
+    {
+      "name": "芜湖",
+      "province": "安徽",
+      "lon": 118.3765,
+      "lat": 31.3263
+    },
+    {
+      "name": "黄山",
+      "province": "安徽",
+      "lon": 118.3376,
+      "lat": 29.7147
+    },
+    {
+      "name": "福州",
+      "province": "福建",
+      "lon": 119.2965,
+      "lat": 26.0745
+    },
+    {
+      "name": "厦门",
+      "province": "福建",
+      "lon": 118.0894,
+      "lat": 24.4798
+    },
+    {
+      "name": "泉州",
+      "province": "福建",
+      "lon": 118.6757,
+      "lat": 24.8741
+    },
+    {
+      "name": "漳州",
+      "province": "福建",
+      "lon": 117.6475,
+      "lat": 24.5129
+    },
+    {
+      "name": "南昌",
+      "province": "江西",
+      "lon": 115.8582,
+      "lat": 28.6829
+    },
+    {
+      "name": "景德镇",
+      "province": "江西",
+      "lon": 117.1784,
+      "lat": 29.2687
+    },
+    {
+      "name": "赣州",
+      "province": "江西",
+      "lon": 114.9335,
+      "lat": 25.8311
+    },
+    {
+      "name": "武汉",
+      "province": "湖北",
+      "lon": 114.3054,
+      "lat": 30.5931
+    },
+    {
+      "name": "宜昌",
+      "province": "湖北",
+      "lon": 111.2865,
+      "lat": 30.6919
+    },
+    {
+      "name": "襄阳",
+      "province": "湖北",
+      "lon": 112.1224,
+      "lat": 32.0089
+    },
+    {
+      "name": "长沙",
+      "province": "湖南",
+      "lon": 112.9388,
+      "lat": 28.2282
+    },
+    {
+      "name": "株洲",
+      "province": "湖南",
+      "lon": 113.1338,
+      "lat": 27.8276
+    },
+    {
+      "name": "张家界",
+      "province": "湖南",
+      "lon": 110.4784,
+      "lat": 29.1171
+    },
+    {
+      "name": "岳阳",
+      "province": "湖南",
+      "lon": 113.1289,
+      "lat": 29.3571
+    },
+    {
+      "name": "南宁",
+      "province": "广西",
+      "lon": 108.3669,
+      "lat": 22.817
+    },
+    {
+      "name": "桂林",
+      "province": "广西",
+      "lon": 110.2902,
+      "lat": 25.2736
+    },
+    {
+      "name": "柳州",
+      "province": "广西",
+      "lon": 109.4286,
+      "lat": 24.3264
+    },
+    {
+      "name": "北海",
+      "province": "广西",
+      "lon": 109.1199,
+      "lat": 21.4811
+    },
+    {
+      "name": "梧州",
+      "province": "广西",
+      "lon": 111.2791,
+      "lat": 23.4769
+    },
+    {
+      "name": "钦州",
+      "province": "广西",
+      "lon": 108.6541,
+      "lat": 21.979
+    },
+    {
+      "name": "贵港",
+      "province": "广西",
+      "lon": 109.5989,
+      "lat": 23.1115
+    },
+    {
+      "name": "惠州",
+      "province": "广东",
+      "lon": 114.4161,
+      "lat": 23.1115
+    },
+    {
+      "name": "东莞",
+      "province": "广东",
+      "lon": 113.7518,
+      "lat": 23.0207
+    },
+    {
+      "name": "佛山",
+      "province": "广东",
+      "lon": 113.1214,
+      "lat": 23.0215
+    },
+    {
+      "name": "珠海",
+      "province": "广东",
+      "lon": 113.5767,
+      "lat": 22.2707
+    },
+    {
+      "name": "中山",
+      "province": "广东",
+      "lon": 113.3928,
+      "lat": 22.5176
+    },
+    {
+      "name": "江门",
+      "province": "广东",
+      "lon": 113.0815,
+      "lat": 22.5787
+    },
+    {
+      "name": "清远",
+      "province": "广东",
+      "lon": 113.056,
+      "lat": 23.6818
+    },
+    {
+      "name": "韶关",
+      "province": "广东",
+      "lon": 113.5975,
+      "lat": 24.8104
+    },
+    {
+      "name": "汕头",
+      "province": "广东",
+      "lon": 116.6822,
+      "lat": 23.3541
+    },
+    {
+      "name": "潮州",
+      "province": "广东",
+      "lon": 116.6226,
+      "lat": 23.6567
+    },
+    {
+      "name": "揭阳",
+      "province": "广东",
+      "lon": 116.3728,
+      "lat": 23.5499
+    },
+    {
+      "name": "茂名",
+      "province": "广东",
+      "lon": 110.9255,
+      "lat": 21.6627
+    },
+    {
+      "name": "阳江",
+      "province": "广东",
+      "lon": 111.9822,
+      "lat": 21.8579
+    },
+    {
+      "name": "河源",
+      "province": "广东",
+      "lon": 114.7,
+      "lat": 23.7435
+    },
+    {
+      "name": "梅州",
+      "province": "广东",
+      "lon": 116.1226,
+      "lat": 24.2886
+    },
+    {
+      "name": "汕尾",
+      "province": "广东",
+      "lon": 115.3751,
+      "lat": 22.7862
+    },
+    {
+      "name": "昆明",
+      "province": "云南",
+      "lon": 102.8329,
+      "lat": 24.8801
+    },
+    {
+      "name": "大理",
+      "province": "云南",
+      "lon": 100.2257,
+      "lat": 25.6065
+    },
+    {
+      "name": "丽江",
+      "province": "云南",
+      "lon": 100.2278,
+      "lat": 26.855
+    },
+    {
+      "name": "曲靖",
+      "province": "云南",
+      "lon": 103.7962,
+      "lat": 25.4899
+    },
+    {
+      "name": "贵阳",
+      "province": "贵州",
+      "lon": 106.6302,
+      "lat": 26.647
+    },
+    {
+      "name": "遵义",
+      "province": "贵州",
+      "lon": 106.9274,
+      "lat": 27.7257
+    },
+    {
+      "name": "六盘水",
+      "province": "贵州",
+      "lon": 104.8303,
+      "lat": 26.5928
+    },
+    {
+      "name": "绵阳",
+      "province": "四川",
+      "lon": 104.6791,
+      "lat": 31.4675
+    },
+    {
+      "name": "乐山",
+      "province": "四川",
+      "lon": 103.7656,
+      "lat": 29.5521
+    },
+    {
+      "name": "宜宾",
+      "province": "四川",
+      "lon": 104.6428,
+      "lat": 28.7513
+    },
+    {
+      "name": "南充",
+      "province": "四川",
+      "lon": 106.1107,
+      "lat": 30.8373
+    },
+    {
+      "name": "德阳",
+      "province": "四川",
+      "lon": 104.3979,
+      "lat": 31.1268
+    },
+    {
+      "name": "西昌",
+      "province": "四川",
+      "lon": 102.2644,
+      "lat": 27.896
+    },
+    {
+      "name": "拉萨",
+      "province": "西藏",
+      "lon": 91.1322,
+      "lat": 29.6604
+    },
+    {
+      "name": "日喀则",
+      "province": "西藏",
+      "lon": 88.8851,
+      "lat": 29.2675
+    },
+    {
+      "name": "银川",
+      "province": "宁夏",
+      "lon": 106.2309,
+      "lat": 38.4872
+    },
+    {
+      "name": "石嘴山",
+      "province": "宁夏",
+      "lon": 106.3762,
+      "lat": 39.0133
+    },
+    {
+      "name": "固原",
+      "province": "宁夏",
+      "lon": 106.2426,
+      "lat": 36.0159
+    },
+    {
+      "name": "乌鲁木齐",
+      "province": "新疆",
+      "lon": 87.6168,
+      "lat": 43.8256
+    },
+    {
+      "name": "喀什",
+      "province": "新疆",
+      "lon": 75.9898,
+      "lat": 39.4677
+    },
+    {
+      "name": "伊宁",
+      "province": "新疆",
+      "lon": 81.3294,
+      "lat": 43.9128
+    },
+    {
+      "name": "吐鲁番",
+      "province": "新疆",
+      "lon": 89.1895,
+      "lat": 42.9513
+    },
+    {
+      "name": "克拉玛依",
+      "province": "新疆",
+      "lon": 84.8892,
+      "lat": 45.5799
+    },
+    {
+      "name": "阿勒泰",
+      "province": "新疆",
+      "lon": 88.1396,
+      "lat": 47.8484
+    },
+    {
+      "name": "哈尔滨",
+      "province": "黑龙江",
+      "lon": 126.535,
+      "lat": 45.8038
+    },
+    {
+      "name": "齐齐哈尔",
+      "province": "黑龙江",
+      "lon": 123.9182,
+      "lat": 47.3543
+    },
+    {
+      "name": "牡丹江",
+      "province": "黑龙江",
+      "lon": 129.6332,
+      "lat": 44.5517
+    },
+    {
+      "name": "长春",
+      "province": "吉林",
+      "lon": 125.3235,
+      "lat": 43.8171
+    },
+    {
+      "name": "吉林市",
+      "province": "吉林",
+      "lon": 126.5496,
+      "lat": 43.8378
+    },
+    {
+      "name": "延吉",
+      "province": "吉林",
+      "lon": 129.5088,
+      "lat": 42.8913
+    },
+    {
+      "name": "沈阳",
+      "province": "辽宁",
+      "lon": 123.4315,
+      "lat": 41.8057
+    },
+    {
+      "name": "大连",
+      "province": "辽宁",
+      "lon": 121.6147,
+      "lat": 38.914
+    },
+    {
+      "name": "鞍山",
+      "province": "辽宁",
+      "lon": 122.9946,
+      "lat": 41.1085
+    },
+    {
+      "name": "锦州",
+      "province": "辽宁",
+      "lon": 121.127,
+      "lat": 41.0951
+    },
+    {
+      "name": "济南",
+      "province": "山东",
+      "lon": 117.1201,
+      "lat": 36.6512
+    },
+    {
+      "name": "青岛",
+      "province": "山东",
+      "lon": 120.3826,
+      "lat": 36.0671
+    },
+    {
+      "name": "烟台",
+      "province": "山东",
+      "lon": 121.4479,
+      "lat": 37.4638
+    },
+    {
+      "name": "威海",
+      "province": "山东",
+      "lon": 122.1204,
+      "lat": 37.5131
+    },
+    {
+      "name": "泰安",
+      "province": "山东",
+      "lon": 117.0876,
+      "lat": 36.2003
+    },
+    {
+      "name": "郑州",
+      "province": "河南",
+      "lon": 113.6254,
+      "lat": 34.7466
+    },
+    {
+      "name": "洛阳",
+      "province": "河南",
+      "lon": 112.454,
+      "lat": 34.6197
+    },
+    {
+      "name": "开封",
+      "province": "河南",
+      "lon": 114.3076,
+      "lat": 34.7972
+    },
+    {
+      "name": "安阳",
+      "province": "河南",
+      "lon": 114.3924,
+      "lat": 36.0976
+    },
+    {
+      "name": "太原",
+      "province": "山西",
+      "lon": 112.5489,
+      "lat": 37.8706
+    },
+    {
+      "name": "大同",
+      "province": "山西",
+      "lon": 113.2953,
+      "lat": 40.0903
+    },
+    {
+      "name": "临汾",
+      "province": "山西",
+      "lon": 111.519,
+      "lat": 36.088
+    },
+    {
+      "name": "运城",
+      "province": "山西",
+      "lon": 111.007,
+      "lat": 35.0265
+    },
+    {
+      "name": "石家庄",
+      "province": "河北",
+      "lon": 114.5149,
+      "lat": 38.0428
+    },
+    {
+      "name": "唐山",
+      "province": "河北",
+      "lon": 118.1802,
+      "lat": 39.6305
+    },
+    {
+      "name": "秦皇岛",
+      "province": "河北",
+      "lon": 119.6005,
+      "lat": 39.9354
+    },
+    {
+      "name": "邯郸",
+      "province": "河北",
+      "lon": 114.4907,
+      "lat": 36.6123
+    },
+    {
+      "name": "保定",
+      "province": "河北",
+      "lon": 115.4646,
+      "lat": 38.8744
+    },
+    {
+      "name": "呼和浩特",
+      "province": "内蒙古",
+      "lon": 111.7492,
+      "lat": 40.8426
+    },
+    {
+      "name": "包头",
+      "province": "内蒙古",
+      "lon": 109.8403,
+      "lat": 40.6574
+    },
+    {
+      "name": "鄂尔多斯",
+      "province": "内蒙古",
+      "lon": 109.7813,
+      "lat": 39.6083
+    },
+    {
+      "name": "赤峰",
+      "province": "内蒙古",
+      "lon": 118.8876,
+      "lat": 42.2569
+    },
+    {
+      "name": "海口",
+      "province": "海南",
+      "lon": 110.1999,
+      "lat": 20.044
+    },
+    {
+      "name": "三亚",
+      "province": "海南",
+      "lon": 109.512,
+      "lat": 18.2528
+    },
+    {
+      "name": "儋州",
+      "province": "海南",
+      "lon": 109.58,
+      "lat": 19.52
+    },
+    {
+      "name": "西双版纳",
+      "province": "云南",
+      "lon": 100.7975,
+      "lat": 22.0089
+    },
+    {
+      "name": "敦煌",
+      "province": "甘肃",
+      "lon": 94.6616,
+      "lat": 40.1421
+    }
+  ]
+}

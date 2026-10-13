@@ -1,0 +1,55 @@
+(()=>{
+'use strict';
+const root=document.querySelector('#idealExperience');if(!root)return;
+const $=(s)=>document.querySelector(s), $$=(s)=>Array.from(document.querySelectorAll(s));
+const scene=$('#idealScene'),scroll=$('#idealViewScroll'),body=$('#idealPanelBody');
+const spots=[
+ {id:'piano',name:'钢琴',en:'THE SOUND OF HOME',number:'01',icon:'♫',headline:'让音乐慢一点，\n也让时间慢一点。',copy:'有空时在家里弹弹钢琴，是我对独处最具体的想象之一。不是为了完成考级，也不需要表演给谁看，只是让指尖跟着旋律，在属于自己的时间里安静下来。',tags:['音乐','专注','审美','安静']},
+ {id:'reading',name:'阅读',en:'SPACE FOR THOUGHT',number:'02',icon:'▤',headline:'有自己的书桌，\n也有不被打断的思考。',copy:'书架上放着还没读完的书，手边有笔记本和一杯水。我希望持续阅读数学、心理学、社会与历史相关的内容；阅读不是为了给自己贴标签，而是保留主动理解世界的能力。',tags:['阅读','好奇','沉淀','学习']},
+ {id:'sun',name:'阳光',en:'A LITTLE SUNSHINE',number:'03',icon:'☼',headline:'忙的时候认真做事，\n闲的时候认真晒太阳。',copy:'我想要一个明亮的家。阳光穿过玻璃，照在书页和地毯上。生活不应该只有计划表，也应该有可以毫无负担地放慢脚步、看看窗外的时刻。',tags:['日照','松弛','节奏','自由']},
+ {id:'pets',name:'猫狗陪伴',en:'THE WARMTH OF COMPANY',number:'04',icon:'♡',headline:'一只猫，一只狗，\n让房子真正像一个家。',copy:'猫趴在光照得到的地方，小狗在身边打盹。它们需要时间、照顾与耐心，而我也希望未来能承担起这些日常责任；陪伴不是热闹，是平静而真实地一起生活。',tags:['陪伴','温度','责任','日常']},
+ {id:'garden',name:'阳台菜园',en:'MY LITTLE GARDEN',number:'05',icon:'✿',headline:'在城市里，\n留下一小块能慢慢生长的土地。',copy:'我想把阳台变成私人花园兼菜园。种一点葱、番茄和喜欢的花，观察发芽、生长、开花与收获。照顾植物是一件很具体的事：你不能催促时间，只能持续地投入。',tags:['自然','耐心','种植','生活感']},
+ {id:'home',name:'我的空间',en:'LIFE ON MY OWN TERMS',number:'06',icon:'⌂',headline:'我想拥有的不是豪宅，\n而是选择生活的自由。',copy:'这里的价值不在面积、地段或装修价格。更重要的是工作与兴趣之间有边界，学习、阅读、音乐和运动各自有位置。我希望未来能自由地决定自己的生活节奏，也保留探索世界的空间。',tags:['独立','自由','秩序','长期主义']},
+];
+let selected=null, time='morning';
+const KEY='wz_ideal_life_seen_v1';let seen=[];try{const old=JSON.parse(localStorage.getItem(KEY)||'[]');seen=Array.isArray(old)?old.filter(s=>spots.some(x=>x.id===s)):[]}catch{}
+const feedback=['钢琴声响起，房间像有了自己的节奏。','不是比赛或任务，只是弹一段自己喜欢的旋律。'];
+let pianoCtx=null,gardenCount=0,petIndex=0,readIndex=0;
+function store(){try{localStorage.setItem(KEY,JSON.stringify(seen))}catch{}}
+function pulseProgress(){const n=seen.length;$('#idealVisitStatus').textContent=String(n).padStart(2,'0')+' / 06 已探索';$('#idealProgressLabel').textContent=n+' / 6';$('#idealProgressBar').style.width=(n/6*100)+'%'; $$('.ideal-hotspot,.ideal-spot-index button').forEach(btn=>btn.classList.toggle('is-explored',seen.includes(btn.dataset.spot)));}
+function indexPaint(){const container=$('#idealSpotIndex');spots.forEach(s=>{const b=document.createElement('button');b.type='button';b.dataset.spot=s.id;b.textContent=s.icon+' '+s.name;b.addEventListener('click',()=>{if(s.id==='reading'){choose('reading',{noPeek:true,pan:false});location.href='reading.html';return;}choose(s.id,{scrollToScene:true})});container.appendChild(b)});pulseProgress()}
+function escapeText(str){return String(str).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function setTime(t){time=t;scene.dataset.time=t; const labels={morning:'08:00 / 清晨的光',afternoon:'15:00 / 慢下来的午后',evening:'19:00 / 灯光和钢琴声'};$('#idealTimeHint').textContent=labels[t];$$('[data-time]').forEach(b=>{const active=b.dataset.time===t;b.classList.toggle('is-on',active);b.setAttribute('aria-pressed',String(active))});}
+function content(s){const intro=`<div class="ideal-panel-icon">${s.icon}</div><div class="ideal-kicker">${s.en}</div><h2>${escapeText(s.headline).replace(/\n/g,'<br>')}</h2><p>${escapeText(s.copy)}</p><div class="ideal-panel-tags">${s.tags.map(t=>'<span>'+escapeText(t)+'</span>').join('')}</div>`;
+ let extra='';
+ if(s.id==='piano') extra=`<div class="ideal-mini-interactive"><span class="ideal-action-title">TRY A FEW NOTES / 轻触琴键，弹一段旋律</span><div class="ideal-note-keys">${['C','D','E','F','G','A','B'].map((n,i)=>`<button type="button" data-note-key="${i}" aria-label="弹奏 ${n} 音">${n}</button>`).join('')}</div><p class="ideal-action-feedback" id="idealActionFeedback">点击琴键，会发出简短的钢琴音色。</p></div>`;
+ if(s.id==='garden') extra='<div class="ideal-mini-interactive"><span class="ideal-action-title">THE LITTLE GARDEN / 照顾我的阳台菜园</span><div class="ideal-garden-state" id="idealGardenState">🌱 · ·</div><button class="ideal-action-btn" id="idealGardenGrow" type="button">浇一次水 ↗</button><p class="ideal-action-feedback" id="idealActionFeedback">发芽不是瞬间发生的，照顾需要耐心。</p></div>';
+ if(s.id==='pets') extra='<div class="ideal-mini-interactive"><span class="ideal-action-title">THE COMPANIONS / 和它们打声招呼</span><button class="ideal-action-btn" type="button" id="idealPetGreet">♡ 摸摸猫咪 / 小狗</button><p class="ideal-action-feedback" id="idealActionFeedback">小猫蜷成一团，小狗靠着它睡着了。</p></div>';
+ if(s.id==='reading') extra='<div class="ideal-mini-interactive"><span class="ideal-action-title">MY READING ARCHIVE / 三本书的交互知识书库</span><p class="ideal-action-feedback">《思考，快与慢》《乌合之众》《影响力》：选择书籍、探索目录、拆解知识点并继续追踪细节。</p><a class="ideal-action-btn" style="display:inline-block;margin-top:14px;text-decoration:none" href="reading.html">进入三本书知识档案 ↗</a></div>';
+ if(s.id==='sun') extra='<div class="ideal-mini-interactive"><span class="ideal-action-title">LIGHT & TIME / 让光线慢慢变化</span><button class="ideal-action-btn" type="button" id="idealSunNext">切换下一段时光 ↗</button><p class="ideal-action-feedback" id="idealActionFeedback">清晨、午后、傍晚，各有一种值得停留的光。</p></div>';
+ if(s.id==='home') extra='<div class="ideal-mini-interactive"><span class="ideal-action-title">THE ESSENCE / 我想留下的生活原则</span><p class="ideal-action-feedback">有能力安排自己的时间，有意愿照顾身边的生命，也有空间不断学习和创造。</p></div>';
+ return intro+extra;
+}
+function playNote(i){try{const AudioCtx=window.AudioContext||window.webkitAudioContext;if(!AudioCtx)return;if(!pianoCtx)pianoCtx=new AudioCtx();if(pianoCtx.state==='suspended')pianoCtx.resume();const now=pianoCtx.currentTime;const f=261.63*Math.pow(2,i/12);const fundamental=pianoCtx.createOscillator(),harmonic=pianoCtx.createOscillator(),gain=pianoCtx.createGain(),harmGain=pianoCtx.createGain();fundamental.type='sine';fundamental.frequency.value=f;harmonic.type='sine';harmonic.frequency.value=f*2;gain.gain.setValueAtTime(.0001,now);gain.gain.exponentialRampToValueAtTime(.14,now+.008);gain.gain.exponentialRampToValueAtTime(.0001,now+1.1);harmGain.gain.setValueAtTime(.0001,now);harmGain.gain.exponentialRampToValueAtTime(.025,now+.01);harmGain.gain.exponentialRampToValueAtTime(.0001,now+.5);fundamental.connect(gain).connect(pianoCtx.destination);harmonic.connect(harmGain).connect(pianoCtx.destination);fundamental.start(now);harmonic.start(now);fundamental.stop(now+1.15);harmonic.stop(now+.55)}catch{} }
+function bindExtra(s){if(s.id==='piano')$$('[data-note-key]').forEach(b=>b.addEventListener('click',()=>{playNote(Number(b.dataset.noteKey));$('#idealActionFeedback').textContent=feedback[0]}));
+ if(s.id==='garden'){function renderGarden(){const stages=['🌱 · ·','🌿 🌱 ·','🌿 🌿 🌼','🍅 🌿 🌼'];$('#idealGardenState').textContent=stages[Math.min(gardenCount,3)];$('#idealActionFeedback').textContent=['发芽不是瞬间发生的，照顾需要耐心。','第一株小苗长大了一点。','花开了，阳台有了新的颜色。','番茄熟了。今天的耐心有了收获。'][Math.min(gardenCount,3)];$('#idealGardenGrow').textContent=gardenCount>=3?'重新种一盆 ↻':'浇一次水 ↗'}renderGarden();$('#idealGardenGrow').addEventListener('click',()=>{gardenCount=(gardenCount+1)%4;renderGarden()})}
+ if(s.id==='pets')$('#idealPetGreet').addEventListener('click',()=>{$('#idealActionFeedback').textContent=['猫咪懒洋洋地伸了个懒腰，继续晒太阳。','小狗摇了摇尾巴，靠近你坐下。','它们又挤在一起睡着了，屋子里非常安静。'][petIndex++%3]});
+
+ if(s.id==='sun')$('#idealSunNext').addEventListener('click',()=>{setTime(['morning','afternoon','evening'][(['morning','afternoon','evening'].indexOf(time)+1)%3]);$('#idealActionFeedback').textContent='光线变了，同一间房子也有了另一种气氛。'});
+}
+function revealInScroll(spot){const b=document.querySelector('.ideal-hotspot[data-spot="'+spot+'"]').getBoundingClientRect();const box=scroll.getBoundingClientRect();if(scroll.scrollWidth<=scroll.clientWidth)return;const delta=b.left+b.width/2-(box.left+box.width/2);scroll.scrollTo({left:Math.max(0,scroll.scrollLeft+delta),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})}
+function closePeek(){const el=$('#idealPeek');el.hidden=true;}
+function peek(s){$('#idealPeekKicker').textContent='MOMENT / '+s.number;$('#idealPeekTitle').textContent=s.name+' · '+s.en;$('#idealPeekText').textContent=s.copy;$('#idealPeek').hidden=false;}
+function choose(id,opts={}){const s=spots.find(x=>x.id===id);if(!s)return;selected=id;$('#idealPanelNumber').textContent=s.number+' / 06';body.innerHTML=content(s);bindExtra(s);if(opts.noPeek)closePeek();else peek(s);if(!seen.includes(id)){seen.push(id);store()}pulseProgress();$$('.ideal-hotspot,.ideal-spot-index button').forEach(b=>{const on=b.dataset.spot===id;b.classList.toggle('is-selected',on);b.setAttribute('aria-pressed',String(on))});if(opts.scrollToScene){scroll.scrollIntoView({behavior:'smooth',block:'center'});revealInScroll(id)}else if(opts.pan!==false)revealInScroll(id);}
+$$('.ideal-hotspot').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.spot==='reading'){choose('reading',{noPeek:true,pan:false});location.href='reading.html';return;}choose(b.dataset.spot,{pan:false})}));
+$$('.ideal-time-btn').forEach(b=>b.addEventListener('click',()=>setTime(b.dataset.time)));
+$('#idealStartTour').addEventListener('click',()=>{choose('piano',{noPeek:true});$('#idealDashboard').scrollIntoView({behavior:'smooth',block:'start'})});
+$('#idealNext').addEventListener('click',()=>choose(spots[(Math.max(0,spots.findIndex(s=>s.id===selected))+1)%spots.length].id,{scrollToScene:true}));
+$('#idealPrev').addEventListener('click',()=>choose(spots[(Math.max(0,spots.findIndex(s=>s.id===selected))+spots.length-1)%spots.length].id,{scrollToScene:true}));
+$('#idealReset').addEventListener('click',()=>{closePeek();seen=[];store();pulseProgress();selected=null;$$('.ideal-hotspot,.ideal-spot-index button').forEach(b=>{b.classList.remove('is-selected');b.setAttribute('aria-pressed','false')});$('#idealPanelNumber').textContent='00 / 06';body.innerHTML='<div class="ideal-panel-icon">✦</div><h2>重新开始，<br>看看这个家还有什么故事。</h2><p>点击你想了解的生活片段，每个角落都可以被再次打开。</p>';});
+$$('.ideal-day-card').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.day==='afternoon'){choose('reading',{noPeek:true,pan:false});location.href='reading.html';return;}setTime(b.dataset.day);choose(({morning:'garden',afternoon:'reading',evening:'piano'})[b.dataset.day],{scrollToScene:true})}));
+$('#idealPeekClose').addEventListener('click',closePeek);$('#idealPeekMore').addEventListener('click',()=>{closePeek();$('#idealDashboard').scrollIntoView({behavior:'smooth',block:'start'})});
+$('#idealMusicButton').addEventListener('click',()=>{const audio=$('#wzPianoAudio'),play=$('#wzMusicToggle');if(audio&&play){if(audio.paused){play.click();$('#idealMusicHint').textContent='正在尝试播放 · 曲目可在左下角切换';}else{$('#idealMusicHint').textContent='钢琴曲正在播放中 · 可在左下角控制';}return}$('#idealMusicHint').textContent='打开页面左下角的音乐播放器，选择你喜欢的钢琴曲。'});
+scroll.addEventListener('keydown',e=>{if(['ArrowRight','ArrowLeft'].includes(e.key)&&!e.target.closest('button')){e.preventDefault();scroll.scrollBy({left:e.key==='ArrowRight'?225:-225,behavior:'smooth'})}});
+indexPaint();setTime('morning');
+})();

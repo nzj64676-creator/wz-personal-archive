@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b0b0e"><meta name="description" content="王振 WZ 的多页面交互式个人数字名片。探索 INTJ、八个人格维度、兴趣和思考。"><title>理想生活 · WZ. Personal Archive</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%23111115'/%3E%3Ctext x='10' y='44' fill='%23e8dbc6' font-family='Georgia' font-size='35'%3EW%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/music.css"><link rel="stylesheet" href="assets/ideal-life.css"></head>
+<body data-page="ideal-life.html"><a class="skip" href="#main">跳转到主要内容</a><div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+<header class="header"><div class="header-inner"><a class="brand" href="index.html" aria-label="WZ. 返回首页">WZ<span>.</span><small>PERSONAL ARCHIVE</small></a><nav class="desktop-nav" aria-label="主导航"><a href="index.html" class="">首页</a><a href="identity.html" class="">八维人格</a><a href="atlas.html" class="">兴趣地图</a><a href="footprints.html">城市足迹</a><a href="dialog.html" class="">观点互动</a><a href="ideal-life.html" class="is-active">理想生活 <span>走进向往的日常</span></a><a href="notes.html" class="">生活档案</a><a href="connect.html" class="">联系我</a></nav><button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="mobileNav">菜单 <span aria-hidden="true">☰</span></button></div></header>
+<nav id="mobileNav" class="mobile-nav" aria-label="移动端导航" hidden><a href="index.html">首页 <span>个人首页</span></a><a href="identity.html">八维人格 <span>八种性格维度</span></a><a href="atlas.html">兴趣地图 <span>探索兴趣领域</span></a><a href="footprints.html">城市足迹 <span>我的旅行地图</span></a><a href="dialog.html">观点互动 <span>交流与选择</span></a><a href="ideal-life.html">理想生活 <span>走进向往的日常</span></a><a href="notes.html">生活档案 <span>学习与生活</span></a><a href="connect.html">联系我 <span>社交方式</span></a></nav>
+
+<main id="main" class="ideal-main">
+  <section class="ideal-intro wrap">
+    <div class="ideal-eyebrow">07 / THE LIFE I IMAGINE <span>✦ A PERSONAL VISION</span></div>
+    <div class="ideal-intro-row"><div><h1>理想生活<span class="ideal-dot">.</span></h1><p class="ideal-en">A QUIETER KIND OF RICHNESS</p></div>
+    <div class="ideal-intro-side">我向往的，不只是不断向前，<br>也是有音乐、有书、有阳光与陪伴的日常。<div style="margin-top:13px"><a class="ideal-books-link" href="reading.html">走进我的三本书 · 知识档案 ↗</a></div></div></div>
+  </section>
+
+  <section class="ideal-experience" id="idealExperience" aria-label="可互动的理想生活场景">
+    <div class="ideal-control-bar wrap">
+      <div class="ideal-control-left"><span class="ideal-control-title">EXPLORE MY IDEAL LIFE</span><span class="ideal-control-muted" id="idealVisitStatus">00 / 06 已探索</span></div>
+      <div class="ideal-control-right" role="group" aria-label="切换场景光线">
+        <button class="ideal-time-btn is-on" type="button" data-time="morning" aria-pressed="true">☀ 清晨</button>
+        <button class="ideal-time-btn" type="button" data-time="afternoon" aria-pressed="false">◐ 午后</button>
+        <button class="ideal-time-btn" type="button" data-time="evening" aria-pressed="false">☾ 傍晚</button>
+      </div>
+    </div>
+    <div class="ideal-view-scroll" id="idealViewScroll" tabindex="0" aria-label="互动全景，可以左右滚动浏览">
+      <div class="ideal-scene" id="idealScene" data-time="morning">
+        <img class="ideal-scene-image" src="assets/ideal-life-scene.webp" alt="理想中的家：有钢琴、书桌、猫狗、阳光与种满绿植的阳台，远处是城市与山脉" fetchpriority="high"/>
+        <div class="ideal-light-mood" aria-hidden="true"></div><div class="ideal-scene-shade" aria-hidden="true"></div>
+        <div class="ideal-scene-head">
+          <div class="ideal-kicker">WZ. / MY PRIVATE UNIVERSE</div>
+          <h2>有光，有书，<br><em>有属于自己的时间。</em></h2>
+          <p>点击画面中的六个光点，逐个走进我想过的生活。</p>
+          <button type="button" class="ideal-btn-main" id="idealStartTour">开始探索这个家 <span>↗</span></button>
+        </div>
+        <button type="button" class="ideal-hotspot" style="--x:14%;--y:66%" data-spot="piano" aria-label="探索钢琴"><span class="ideal-hotspot-ring" aria-hidden="true"></span><span class="ideal-hotspot-label"><span>♫</span> 钢琴</span></button>
+        <button type="button" class="ideal-hotspot" style="--x:82%;--y:17%" data-spot="sun" aria-label="探索阳光"><span class="ideal-hotspot-ring" aria-hidden="true"></span><span class="ideal-hotspot-label"><span>☼</span> 阳光</span></button>
+        <button type="button" class="ideal-hotspot" style="--x:61%;--y:42%" data-spot="garden" aria-label="探索阳台菜园"><span class="ideal-hotspot-ring" aria-hidden="true"></span><span class="ideal-hotspot-label"><span>✿</span> 阳台菜园</span></button>
+        <button type="button" class="ideal-hotspot" style="--x:74%;--y:66%" data-spot="reading" aria-label="探索阅读"><span class="ideal-hotspot-ring" aria-hidden="true"></span><span class="ideal-hotspot-label"><span>▤</span> 阅读</span></button>
+        <button type="button" class="ideal-hotspot" style="--x:37%;--y:69%" data-spot="pets" aria-label="探索猫狗陪伴"><span class="ideal-hotspot-ring" aria-hidden="true"></span><span class="ideal-hotspot-label"><span>♡</span> 猫狗陪伴</span></button>
+        <button type="button" class="ideal-hotspot" style="--x:53%;--y:78%" data-spot="home" aria-label="探索家的意义"><span class="ideal-hotspot-ring" aria-hidden="true"></span><span class="ideal-hotspot-label"><span>⌂</span> 我的空间</span></button>
+        <div class="ideal-frame-corner corner-a" aria-hidden="true"></div><div class="ideal-frame-corner corner-b" aria-hidden="true"></div>
+        <div class="ideal-scene-bottom"><div>AN ORDINARY DAY, BY DESIGN. <span>·</span> LIVE SLOWLY, THINK DEEPLY.</div><span id="idealTimeHint">08:00 / 清晨的光</span></div>
+      </div>
+    </div>
+    <div class="ideal-mobile-swipe">⇆ 左右滑动场景，点击发光标记探索</div>
+    <aside id="idealPeek" class="ideal-peek" aria-live="polite" aria-label="理想生活片段预览" hidden>
+      <div class="ideal-peek-top"><span id="idealPeekKicker">MOMENT / 01</span><button type="button" id="idealPeekClose" aria-label="关闭片段预览">×</button></div>
+      <h3 id="idealPeekTitle"></h3><p id="idealPeekText"></p>
+      <button type="button" id="idealPeekMore">展开完整故事 ↗</button>
+    </aside>
+  </section>
+
+  <section class="ideal-dashboard wrap" id="idealDashboard" aria-label="互动故事及体验控制">
+    <div class="ideal-story-panel" id="idealStoryPanel" aria-live="polite">
+      <div class="ideal-panel-id"><span id="idealPanelNumber">00 / 06</span><span>EXPLORE YOUR MOMENT</span></div>
+      <div class="ideal-panel-body" id="idealPanelBody">
+        <div class="ideal-panel-icon">✦</div>
+        <h2>点击一个光点，<br>打开一个生活片段。</h2>
+        <p>这不是一个豪宅愿望清单，而是我对未来生活秩序的想象：自由支配时间，持续学习，拥有热爱，也能享受不被打扰的日常。</p>
+      </div>
+      <div class="ideal-panel-actions">
+        <button type="button" id="idealPrev" aria-label="上一段故事">← 上一幕</button>
+        <button type="button" id="idealNext">下一幕 →</button>
+        <button type="button" id="idealReset" title="重置这一页的已探索记录">重新探索 ↻</button>
+      </div>
+    </div>
+    <div class="ideal-progress-panel">
+      <div class="ideal-progress-head"><span>MY LITTLE UNIVERSE</span><b id="idealProgressLabel">0 / 6</b></div>
+      <div class="ideal-progress-bar"><div id="idealProgressBar"></div></div>
+      <p>每探索一处，这间理想中的家就多一个被你了解的角落。</p>
+      <div class="ideal-spot-index" id="idealSpotIndex" role="group" aria-label="按主题探索"></div>
+      <div class="ideal-music-box"><div><span class="ideal-mini-label">PIANO IN THE BACKGROUND</span><strong>让钢琴声成为这间屋子的背景</strong><small id="idealMusicHint">使用网站内置的三首钢琴曲，点击后开始播放。</small></div><button type="button" id="idealMusicButton">♫ 播放钢琴曲</button></div>
+    </div>
+  </section>
+
+  <section class="ideal-day wrap" id="idealDay" aria-labelledby="idealDayHeading">
+    <div class="ideal-day-top"><div><div class="ideal-eyebrow">THE RHYTHM I WANT</div><h2 id="idealDayHeading">理想的一天，<em>可以这样展开。</em></h2></div><p>不需要每一天都紧凑而高效。有些时候，最值得期待的，就是自由决定这一刻做什么。</p></div>
+    <div class="ideal-day-cards">
+      <button type="button" class="ideal-day-card" data-day="morning"><span>01 / 早晨</span><strong>醒来，让阳光照进房间。</strong><small>慢慢喝一杯水，照料阳台的植物，开始一天。</small><i>↗</i></button>
+      <button type="button" class="ideal-day-card" data-day="afternoon"><span>02 / 午后</span><strong>读一点书，想一点问题。</strong><small>没有外界催促的专注，也是一种难得的自由。</small><i>↗</i></button>
+      <button type="button" class="ideal-day-card" data-day="evening"><span>03 / 夜晚</span><strong>让一首钢琴曲慢慢结束。</strong><small>猫狗在身边，安静地把生活还给自己。</small><i>↗</i></button>
+    </div>
+  </section>
+  <section class="ideal-closing wrap"><span>THE FUTURE IS PERSONAL.</span><blockquote>“我向往的，不只是成功，<br>而是有能力把平凡的日子，<em>过成自己喜欢的样子。</em>”</blockquote><a class="ideal-back-link" href="notes.html">继续了解我的生活档案 ↗</a></section>
+</main>
+<footer class="footer"><div class="wrap footer-grid"><div><a class="brand footer-brand" href="index.html">WZ<span>.</span></a><p>理性求知，自由生长。<br>一个持续更新的个人数字档案。</p><div class="footer-contact"><a href="mailto:nzj64676@gmail.com" aria-label="通过电子邮件联系王振">邮箱 ↗</a><button type="button" data-copy="wz389272188" data-copy-label="复制微信号">微信：wz389272188 <span aria-hidden="true">⧉</span></button></div></div><div class="footer-links"><a href="index.html">首页 ↗</a><a href="identity.html">八维人格 ↗</a><a href="atlas.html">兴趣地图 ↗</a><a href="footprints.html">城市足迹 ↗</a><a href="dialog.html">观点互动 ↗</a><a href="ideal-life.html">理想生活 ↗</a><a href="notes.html">生活档案 ↗</a><a href="connect.html">联系我 ↗</a></div><div class="footer-end">MADE TO BE EXPLORED.<br>© 2026 WZ.<br>NOT A RESUME. A PERSON.</div></div></footer><script defer src="assets/app.js"></script><script defer src="assets/music.js"></script><script defer src="assets/ideal-life.js"></script></body></html>
