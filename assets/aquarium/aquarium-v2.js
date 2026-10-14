@@ -51,7 +51,7 @@ function updateVisibility(){
   environment?.setVisible(true);
   if(controls){
     controls.enabled=false;controls.enableRotate=false;controls.enableZoom=false;controls.enableDamping=false;controls.maxDistance=Infinity;
-    canvas.style.touchAction='pan-y';controls.update();
+    canvas.style.touchAction='pan-y';
   }
   needsRender=true;
 }
@@ -67,9 +67,9 @@ function resetView(){
 }
 function frameTank(){
   const narrow=document.documentElement.clientWidth<=1100;
-  const target=new THREE.Vector3(0,viewFromAbove?-.05:narrow?-.12:.3,0), position=viewFromAbove?new THREE.Vector3(.1,8.3,.35):new THREE.Vector3(narrow?5.5:1.15,narrow?2.7:.7,narrow?15:9.4);
-  if(narrow||viewFromAbove)position.sub(target).multiplyScalar(Math.max(1,(viewFromAbove?1.35:.76)/camera.aspect)).add(target);
-  setView(position,target,viewFromAbove?'从上方观察':night?'夜色下的鱼缸':'夕光落入水中');
+  const target=new THREE.Vector3(0,narrow?-.12:.3,0), position=new THREE.Vector3(narrow?5.5:1.15,narrow?2.7:.7,narrow?15:9.4);
+  if(narrow)position.sub(target).multiplyScalar(Math.max(1,.76/camera.aspect)).add(target);
+  setView(position,target,night?'夜色下的鱼缸':'夕光落入水中');
 }
 function focusFish(id){
   const resident=residents.find(r=>r.id===id);if(!resident)return;
@@ -158,14 +158,7 @@ function animate(time){
   const dt=Math.min(Math.max((time-lastFrame)/1000,0),.1);lastFrame=time;
   if(document.hidden||embeddedSuspended)return;
   updateLight(dt);if(!paused)step(dt);
-  const movingCamera=Boolean(transition);
-  if(transition){
-    const t=THREE.MathUtils.clamp((time-transition.start)/650,0,1), blend=t*t*(3-2*t);
-    camera.position.lerpVectors(transition.from,transition.to,blend);controls.target.lerpVectors(transition.fromTarget,transition.target,blend);
-    if(t===1)transition=null;
-  }
-  const changed=controls.update(dt);
-  if(!paused||movingCamera||changed||needsRender||Math.abs(nightAmount-(night?1:0))>.002)render();
+  if(!paused||needsRender||Math.abs(nightAmount-(night?1:0))>.002)render();
   inspection?.update(dt,paused);
 }
 
@@ -207,9 +200,10 @@ async function initialize(){
   renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.setClearColor(0x111719,0);
   renderer.shadowMap.enabled=document.documentElement.clientWidth>1100;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
   scene=new THREE.Scene();camera=new THREE.PerspectiveCamera(32,1,.05,80);camera.position.set(1.15,.6,9.5);
-  controls=new OrbitControls(camera,canvas);controls.target.set(0,-.12,0);controls.enableDamping=true;controls.dampingFactor=.07;controls.enablePan=false;
-  controls.minDistance=1.15;controls.maxDistance=18;controls.minPolarAngle=.08;controls.maxPolarAngle=Math.PI*.83;
-  controls.addEventListener('start',()=>transition=null);
+  controls=new OrbitControls(camera,canvas);controls.target.set(0,-.12,0);
+  // No rotation, pan, zoom, or inertia in the main aquarium, even before models load.
+  controls.enabled=false;controls.enableRotate=false;controls.enableZoom=false;controls.enablePan=false;controls.enableDamping=false;
+  canvas.style.touchAction='pan-y';
   const pmrem=new THREE.PMREMGenerator(renderer), room=new RoomEnvironment();scene.environment=pmrem.fromScene(room,.035).texture;room.dispose();pmrem.dispose();
   hemisphere=new THREE.HemisphereLight(0xd5ebef,0x453c2b,.85);scene.add(hemisphere);
   sun=new THREE.DirectionalLight(0xffd0a0,1.9);sun.position.set(-4,6,4);sun.castShadow=renderer.shadowMap.enabled;sun.shadow.mapSize.set(1024,1024);
@@ -247,7 +241,7 @@ async function initialize(){
 
 function installDebug(){
   window.aquariumDebug={
-    snapshot:()=>({ready,paused,single,detail,night,immersive,armed,elapsed,frameCount,selected,cameraTransition:Boolean(transition),visibility:document.visibilityState,camera:camera.position.toArray(),renderer:{...renderer.info.render},environmentObjects:environment.group.children.length,
+    snapshot:()=>({ready,paused,single,detail,night,immersive,armed,elapsed,frameCount,selected,cameraTransition:false,visibility:document.visibilityState,camera:camera.position.toArray(),cameraTarget:controls.target.toArray(),cameraQuaternion:camera.quaternion.toArray(),cameraProjection:camera.projectionMatrix.toArray(),renderer:{...renderer.info.render},environmentObjects:environment.group.children.length,
       fish:residents.map(r=>({id:r.id,model:r.profile.model,visible:r.actor.root.visible,profile:r.profile.habit,metrics:r.actor.metrics,position:r.actor.root.position.toArray(),quaternion:r.actor.root.quaternion.toArray(),mouth:r.actor.mouthPosition(new THREE.Vector3()).toArray(),motion:r.swimmer.getState(),meals:r.meals,animation:r.actor.animationState(),jaw:r.actor.bones.filter(b=>/Jaw|Mouth/i.test(b.name)).map(b=>({name:b.name,q:b.quaternion.toArray(),p:b.position.toArray()}))})),food:food.filter(p=>p.active).map(p=>({id:p.id,p:p.position.toArray()})),consumed:[...consumed]}),
     setPaused:value=>{paused=Boolean(value);updateStatus();},
     setFishVisible:(id,value)=>{if(typeof id==='boolean')residents.forEach(r=>r.actor.root.visible=id);else residents.find(r=>r.id===id).actor.root.visible=value;render();},
@@ -312,9 +306,7 @@ $('feedFish').addEventListener('click',armFeed);
 $('soundWater')?.addEventListener('click',toggleWaterSound);
 $('pauseFish').addEventListener('click',()=>{paused=!paused;if(paused)armed=false;updateStatus();});
 $('detailView').addEventListener('click',()=>detail?closeInspection():focusFish(selected));
-$('resetView').addEventListener('click',resetView);
-$('topView').addEventListener('click',()=>{closeInspection();updateVisibility();viewFromAbove=true;frameTank();updateStatus();});
-$('singleFish').addEventListener('click',()=>{single=!single;clearFood();resetView();updateStatus();});
+$('singleFish').addEventListener('click',()=>{single=!single;clearFood();closeInspection();updateVisibility();updateStatus();});
 $('nightMode').addEventListener('click',()=>setNight(!night));$('sunsetMode').addEventListener('click',()=>setNight(false));
 $('openAtlas').addEventListener('click',()=>$('fishAtlas').showModal());$('closeAtlas').addEventListener('click',()=>$('fishAtlas').close());
 $('fishAtlas').addEventListener('click',event=>{if(event.target===$('fishAtlas')){const rect=$('fishAtlas').getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)$('fishAtlas').close();}});
