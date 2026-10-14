@@ -230,9 +230,14 @@ async function initialize() {
       if (/^eye_/.test(assetName)) {
         object.material=object.material.clone();
         object.material.transmission=0;
+        object.material.map=null;
+        object.material.normalMap=null;
+        object.material.color.set(0x080a0c);
         object.material.metalness=0;
-        object.material.roughness=.23;
+        object.material.roughness=.17;
         object.material.roughnessMap=null;
+        object.material.ior=1.38;
+        object.material.specularIntensity=.45;
         object.material.transparent=false;
         object.material.opacity=1;
         object.material.depthWrite=true;
