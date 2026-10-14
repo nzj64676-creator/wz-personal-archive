@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b0b0e">
+  <title>金鱼 · 观察室 — WZ. Personal Archive</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%23111115'/%3E%3Ctext x='10' y='44' fill='%23e8dbc6' font-family='Georgia' font-size='35'%3EW%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/aquarium/aquarium.css">
+  <script type="importmap">{"imports":{"three":"./assets/vendor/three/three.module.min.js","three/addons/":"./assets/vendor/three/addons/"}}</script>
+</head>
+<body class="aquarium-page">
+  <a class="skip" href="#main">跳转到观察室</a>
+  <header class="aquarium-header wrap">
+    <a class="brand" href="index.html" aria-label="WZ. 返回首页">WZ<span>.</span><small>PERSONAL ARCHIVE</small></a>
+    <a class="aquarium-back" href="ideal-life.html">← 理想生活</a>
+  </header>
+  <main id="main" class="wrap aquarium-main">
+    <div class="aquarium-heading">
+      <div><p class="overline">THE LIFE I IMAGINE / A LIVING DETAIL</p><h1>一尾金鱼，<em>一刻安静。</em></h1></div>
+      <p class="aquarium-intro">留一点时间，观察光线经过鳞片，<br>和尾鳍在水中舒展的样子。</p>
+    </div>
+    <section class="aquarium-observatory" aria-label="三维金鱼观察室">
+      <div class="aquarium-scene" id="aquariumScene">
+        <canvas id="aquariumCanvas" tabindex="0" aria-label="三维鱼缸。拖动旋转视角，滚轮缩放；方向键旋转，加减键缩放。"></canvas>
+        <div class="aquarium-caption"><span>WZ. / QUIET WATER</span><span id="viewCaption">夕阳中的观察室</span></div>
+        <div class="aquarium-loading" id="aquariumLoading" role="status"><span class="loading-orbit"></span><strong>正在打开观察室</strong><p id="loadMessage">加载本地金鱼与材质…</p></div>
+        <p class="aquarium-gesture" id="gestureHint">拖动环绕观察 · 滚轮拉近细节</p>
+      </div>
+      <div class="aquarium-toolbar">
+        <div class="aquarium-status"><span class="status-dot" id="statusDot"></span><span id="aquariumStatus" aria-live="polite">正在准备</span></div>
+        <div class="aquarium-buttons" role="group" aria-label="观察控制">
+          <button id="pauseFish" type="button" aria-pressed="false" disabled>暂停游动</button>
+          <button id="detailView" type="button" aria-pressed="false" disabled>近看金鱼</button>
+          <button id="topView" type="button" disabled>从上方观察</button>
+          <button id="resetView" type="button">重置视角</button>
+        </div>
+      </div>
+    </section>
+    <div class="aquarium-notes">
+      <p><span>01 / OBSERVATION</span>先看一条鱼。拖动视角，观察身体厚度、鱼鳃与尾鳍；暂停后可以细看鳞片和材质。</p>
+      <p><span>DEVELOPMENT PREVIEW</span>第一阶段独立预览。五条鱼、投喂和昼夜变化将在金鱼效果确认后继续制作。</p>
+    </div>
+    <details class="aquarium-provenance">
+      <summary>模型来源、授权与验证信息 <span>＋</span></summary>
+      <div id="modelCredits">正在核实模型信息。</div>
+      <dl id="modelFacts"></dl>
+      <p class="aquarium-legal">模型、贴图、Three.js 与加载器均从本站本地资源加载。此预览不会替换正式网站。</p>
+    </details>
+  </main>
+  <footer class="aquarium-footer wrap">AN ORDINARY DAY, BY DESIGN. <span>© 2026 WZ.</span></footer>
+  <noscript><p class="wrap">三维观察室需要开启 JavaScript。<a href="ideal-life.html">返回理想生活</a></p></noscript>
+  <script type="module" src="assets/aquarium/aquarium.js"></script>
+</body>
+</html>

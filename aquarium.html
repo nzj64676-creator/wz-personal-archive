@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="assets/aquarium/aquarium.css">
   <script type="importmap">{"imports":{"three":"./assets/vendor/three/three.module.min.js","three/addons/":"./assets/vendor/three/addons/"}}</script>
 </head>
-<body class="aquarium-page">
+<body class="aquarium-page" data-light="sunset">
   <a class="skip" href="#main">跳转到观察室</a>
   <header class="aquarium-header wrap">
     <a class="brand" href="index.html" aria-label="WZ. 返回首页">WZ<span>.</span><small>PERSONAL ARCHIVE</small></a>
@@ -18,39 +18,46 @@
   </header>
   <main id="main" class="wrap aquarium-main">
     <div class="aquarium-heading">
-      <div><p class="overline">THE LIFE I IMAGINE / A LIVING DETAIL</p><h1>一尾金鱼，<em>一刻安静。</em></h1></div>
+      <div><p class="overline">THE LIFE I IMAGINE / QUIET WATER</p><h1>一缸流光，<em>一刻安静。</em></h1></div>
       <p class="aquarium-intro">留一点时间，观察光线经过鳞片，<br>和尾鳍在水中舒展的样子。</p>
     </div>
     <section class="aquarium-observatory" aria-label="三维金鱼观察室">
       <div class="aquarium-scene" id="aquariumScene">
         <canvas id="aquariumCanvas" tabindex="0" aria-label="三维鱼缸。拖动旋转视角，滚轮缩放；方向键旋转，加减键缩放。"></canvas>
-        <div class="aquarium-caption"><span>WZ. / QUIET WATER</span><span id="viewCaption">夕阳中的观察室</span></div>
+        <div class="aquarium-caption"><span>WZ. / QUIET WATER</span><span id="viewCaption">夕光落入水中</span></div>
+        <div class="aquarium-scene-controls" role="group" aria-label="光线与观察模式"><div class="aquarium-light-switch"><button id="sunsetMode" type="button" aria-pressed="true">夕阳</button><button id="nightMode" type="button" aria-pressed="false">夜色</button></div><button id="immersiveButton" type="button" aria-pressed="false">沉浸观察 ↗</button></div>
         <div class="aquarium-loading" id="aquariumLoading" role="status"><span class="loading-orbit"></span><strong>正在打开观察室</strong><p id="loadMessage">加载本地金鱼与材质…</p></div>
-        <p class="aquarium-gesture" id="gestureHint">拖动环绕观察 · 滚轮拉近细节</p>
+        <p class="aquarium-gesture" id="gestureHint">拖动环绕 · 滚轮拉近 · 点选一条金鱼</p>
+        <div class="aquarium-toast" id="aquariumToast" role="status" hidden></div>
       </div>
       <div class="aquarium-toolbar">
         <div class="aquarium-status"><span class="status-dot" id="statusDot"></span><span id="aquariumStatus" aria-live="polite">正在准备</span></div>
         <div class="aquarium-buttons" role="group" aria-label="观察控制">
+          <button id="feedFish" class="aquarium-feed" type="button" aria-pressed="false" disabled>少量投喂</button>
           <button id="pauseFish" type="button" aria-pressed="false" disabled>暂停游动</button>
           <button id="detailView" type="button" aria-pressed="false" disabled>近看金鱼</button>
           <button id="topView" type="button" disabled>从上方观察</button>
           <button id="resetView" type="button">重置视角</button>
+          <button id="singleFish" type="button" aria-pressed="false" disabled>单鱼观察</button>
+          <button id="openAtlas" type="button" disabled>金鱼图鉴</button>
         </div>
       </div>
     </section>
+    <section class="aquarium-residents" aria-label="选择一条金鱼"><div class="aquarium-residents-title"><span>FIVE QUIET COMPANIONS</span><small>选择一条，近看它的日常</small></div><div class="aquarium-fish-list" id="fishList"></div></section>
     <div class="aquarium-notes">
-      <p><span>01 / OBSERVATION</span>先看一条鱼。拖动视角，观察身体厚度、鱼鳃与尾鳍；暂停后可以细看鳞片和材质。</p>
-      <p><span>DEVELOPMENT PREVIEW</span>第一阶段独立预览。五条鱼、投喂和昼夜变化将在金鱼效果确认后继续制作。</p>
+      <p><span>A LITTLE RITUAL</span>点击“少量投喂”，再在缸内轻点一下。食物缓缓下沉，金鱼会游近寻找；拖动依然可以旋转视角。</p>
+      <p><span>TAKE YOUR TIME</span>切换夜色，或进入沉浸观察。若想只看一条鱼，可以选择“单鱼观察”，暂停后细看鳞片、鳃盖与鱼鳍。</p>
     </div>
     <details class="aquarium-provenance">
       <summary>模型来源、授权与验证信息 <span>＋</span></summary>
-      <div id="modelCredits">正在核实模型信息。</div>
+      <div id="modelCredits">正在加载本地模型信息。</div>
       <dl id="modelFacts"></dl>
       <p class="aquarium-legal">模型、贴图、Three.js 与加载器均从本站本地资源加载。此预览不会替换正式网站。</p>
     </details>
   </main>
+  <dialog id="fishAtlas" class="aquarium-atlas" aria-labelledby="atlasTitle"><div class="aquarium-atlas-head"><div><p class="overline">WZ. / AQUATIC ARCHIVE</p><h2 id="atlasTitle">这一缸，<em>各有节奏。</em></h2></div><button id="closeAtlas" type="button" aria-label="关闭金鱼图鉴">×</button></div><p class="aquarium-atlas-lede">三尾彗星金鱼与两尾土佐金。这里的名字和游动习性属于观察室中的虚拟个体。</p><div id="atlasCards" class="aquarium-atlas-cards"></div><p class="aquarium-atlas-source">形态来自 somitsu 的 Comet 与 Tosakin 真实模型，均采用 CC BY 4.0 授权。<a href="aquarium-phase1.html">回看第一阶段单鱼验证 ↗</a></p></dialog>
   <footer class="aquarium-footer wrap">AN ORDINARY DAY, BY DESIGN. <span>© 2026 WZ.</span></footer>
   <noscript><p class="wrap">三维观察室需要开启 JavaScript。<a href="ideal-life.html">返回理想生活</a></p></noscript>
-  <script type="module" src="assets/aquarium/aquarium.js"></script>
+  <script type="module" src="assets/aquarium/aquarium-v2.js"></script>
 </body>
 </html>

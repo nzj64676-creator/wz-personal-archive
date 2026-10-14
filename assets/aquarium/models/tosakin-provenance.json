@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "title": "Tosakin goldfish",
+  "creator": "somitsu",
+  "creatorUrl": "https://sketchfab.com/somitsu",
+  "uid": "b2f0681c1e2145bcb0289f03ed75ea37",
+  "sourceUrl": "https://sketchfab.com/3d-models/tosakin-goldfish-b2f0681c1e2145bcb0289f03ed75ea37",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "dataset": {
+    "name": "Objaverse",
+    "publisher": "Ai2 / Allen Institute for AI",
+    "url": "https://huggingface.co/datasets/allenai/objaverse",
+    "databaseLicense": "ODC-By 1.0",
+    "databaseLicenseUrl": "https://opendatacommons.org/licenses/by/1-0/",
+    "objectLicenseInMetadata": "by",
+    "publicIndexUrl": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/object-paths.json.gz",
+    "publicMetadataUrl": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/metadata/000-124.json.gz"
+  },
+  "acquisition": {
+    "date": "2026-10-14",
+    "method": "Official public Objaverse UID index and direct GLB download; no protected viewer extraction or access-control bypass.",
+    "downloadUrl": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-124/b2f0681c1e2145bcb0289f03ed75ea37.glb"
+  },
+  "file": {
+    "path": "tosakin-goldfish.glb",
+    "bytes": 7177684,
+    "sha256": "2de2d5eafa893d76840f04fdbc7a118a202b732d2fccf6f305b15826b05356cb",
+    "originalFileUnchanged": true,
+    "texturesEmbedded": true,
+    "textureResolution": [1024, 1024],
+    "notes": "This public Objaverse distribution has four embedded 1024×1024 textures. It is not the 4K archive currently described by the Sketchfab listing."
+  },
+  "geometryInspection": {
+    "meshes": 14,
+    "triangles": 19560,
+    "bones": 64,
+    "animations": 1,
+    "bodyHasThreeDimensionalExtent": true,
+    "sourceWeightedJawAndGillBones": true
+  },
+  "runtimeChanges": [
+    "鱼身材质调整为不透明，为原有实体眼球设置深色光学材质，保留鱼鳍透明材质与原始几何。",
+    "通过 SkeletonUtils 克隆独立骨骼，每尾鱼具有独立动作时钟；共享原始几何与贴图。",
+    "动画首尾重叠与骨骼缓动，叠加连续转向；通过原有嘴部和鳃骨骼加入接触食物后的张口动作。",
+    "调整模型比例、显示位置和场景光照。"
+  ],
+  "endorsement": "The original creator does not endorse this website or its integration."
+}

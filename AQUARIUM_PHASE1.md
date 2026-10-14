@@ -1,6 +1,8 @@
 # 金鱼观察室：第一阶段
 
-开发分支：`feat/realistic-goldfish-phase1`。入口为 `aquarium.html`，理想生活页面保留原有内容并增加观察室链接。正式 GitHub Pages 仍从 main 发布，开发分支不会自动替换它。
+此文档记录第一阶段的实现。第一阶段原始单鱼预览保存在 `aquarium-phase1.html`；当前 `aquarium.html` 已进入第二阶段，见 `AQUARIUM_PHASE2.md`。
+
+开发分支：`feat/realistic-goldfish-phase1`。正式 GitHub Pages 仍从 main 发布，开发分支不会自动替换它。
 
 ## 本地运行
 
@@ -10,7 +12,7 @@
 python -m http.server 8091 --bind 127.0.0.1
 ```
 
-浏览器打开 `http://127.0.0.1:8091/aquarium.html`。请通过 HTTP 地址打开；直接双击 HTML 的 file:// 地址不能加载 ES 模块和 GLB。
+浏览器打开 `http://127.0.0.1:8091/aquarium-phase1.html`。请通过 HTTP 地址打开；直接双击 HTML 的 file:// 地址不能加载 ES 模块和 GLB。
 
 ## 已实现的第一条金鱼
 

@@ -15,3 +15,9 @@
 - 资源使用本地相对路径，请完整保留 `assets/` 和 `dimensions/` 目录。
 
 根目录的 `README_使用说明.txt` 和 `部署指南_腾讯云EdgeOne.txt` 是原包说明，原样保留。其中“未部署”描述的是原始离线版本，不代表当前的托管状态。
+
+## 互动金鱼缸开发预览
+
+此开发分支新增 `aquarium.html`，以及“理想生活”中的延迟加载鱼缸入口。五尾真实骨骼金鱼、投喂/进食、夕阳/夜色、图鉴和沉浸观察见 [第二阶段说明](AQUARIUM_PHASE2.md)。本地需要通过 HTTP 服务打开，并使用支持 WebGL 2 的浏览器。渲染库、模型和贴图都保存在 `assets/`，无需外部 CDN。
+
+此分支仍用于验收，没有替换 main 的正式站点。原始单鱼验证保存在 `aquarium-phase1.html`。模型作者署名、许可和校验记录见 [模型授权说明](assets/aquarium/models/ATTRIBUTION.md)。
