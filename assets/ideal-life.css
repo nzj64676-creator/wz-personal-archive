@@ -36,11 +36,10 @@
 .ideal-desk-aquarium:hover:after{border-color:#ffebc06e}
 .ideal-desk-aquarium:focus-visible{outline:2px solid #ffebc0;outline-offset:5px}
 .desk-water-shimmer{position:absolute;inset:0;pointer-events:none;clip-path:polygon(0 1%,17% 0,100% 8%,82% 16%);background:linear-gradient(105deg,transparent 25%,#fff5d730 48%,transparent 66%);background-size:200% 100%;animation:desk-water-shimmer 6s ease-in-out infinite alternate;opacity:.25}
-.desk-tank-hint{position:absolute;top:100%;left:50%;display:flex;align-items:center;gap:5px;transform:translateX(-50%);margin-top:7px;padding:5px 9px;border:1px solid #dbb6818c;border-radius:20px;background:#151711d9;color:#f1d8ad;font-size:10px;line-height:1.4;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none;box-shadow:0 3px 12px #17110940}
+.desk-tank-hint{position:absolute;top:100%;left:50%;display:flex;align-items:center;gap:5px;transform:translateX(-50%);margin-top:7px;padding:9px 12px;border:1px solid #dbb6818c;border-radius:20px;background:#151711d9;color:#f1d8ad;font-size:12px;line-height:1;font-family:inherit;white-space:nowrap;transition:background .2s,border-color .2s;box-shadow:0 3px 12px #17110940}
 .desk-tank-hint img{opacity:.8;filter:brightness(0) invert(.9)}
-.ideal-desk-aquarium:hover .desk-tank-hint,.ideal-desk-aquarium:focus-visible .desk-tank-hint{opacity:1}
+.ideal-desk-aquarium:hover .desk-tank-hint,.ideal-desk-aquarium:focus-visible .desk-tank-hint{background:#55412bdc;border-color:#fff1d1}
 @keyframes desk-water-shimmer{from{background-position:90% 0}to{background-position:10% 0}}
-@media(hover:none){.desk-tank-hint{opacity:1}}
 /* Both launchers share one lazy-loaded, reusable WebGL dialog. */
 body.ideal-aquarium-dialog-open{overflow:hidden}
 .ideal-aquarium-dialog{position:fixed;inset:0;margin:auto;padding:0;width:min(1320px,96vw);max-width:none;height:min(820px,92dvh);max-height:none;overflow:hidden;color:#f6e7cf;background:#0e1115;border:1px solid #917650;border-radius:14px;box-shadow:0 20px 95px #000e}
