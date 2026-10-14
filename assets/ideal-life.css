@@ -28,3 +28,38 @@
 @media(max-width:520px){.ideal-peek{right:12px;bottom:78px;width:calc(100vw - 24px);padding:15px 17px}.ideal-peek h3{font-size:21px;margin:8px 0}.ideal-peek p{font-size:11px;line-height:1.65;max-height:52px;margin:0}.ideal-peek #idealPeekMore{font-size:11px}}
 
 .ideal-books-link{color:#efd3a8;font-size:12px;border-bottom:1px solid #b89766;text-decoration:none;padding-bottom:5px}.ideal-books-link:hover{color:#fff0ce}
+
+/* The desk crop shares the original room's lighting; the rest of the photo stays intact. */
+.ideal-scene-desk-layer{pointer-events:none;clip-path:inset(40% 0 28% 83%);mask-image:linear-gradient(90deg,transparent 83%,#000 84.7%),linear-gradient(180deg,transparent 40%,#000 42%,#000 69%,transparent 72%);mask-composite:intersect}
+.ideal-desk-aquarium{position:absolute;z-index:5;left:85.1%;top:50.1%;width:14.5%;height:15.8%;padding:0;border:0;background:transparent;color:#f9e4c3;cursor:pointer;isolation:isolate}
+.ideal-desk-aquarium:after{content:'';position:absolute;inset:2px;border:1px solid transparent;clip-path:polygon(0 0,100% 8%,100% 100%,0 83%);transition:border-color .2s;pointer-events:none}
+.ideal-desk-aquarium:hover:after{border-color:#ffebc06e}
+.ideal-desk-aquarium:focus-visible{outline:2px solid #ffebc0;outline-offset:5px}
+.desk-water-shimmer{position:absolute;inset:0;pointer-events:none;clip-path:polygon(0 1%,17% 0,100% 8%,82% 16%);background:linear-gradient(105deg,transparent 25%,#fff5d730 48%,transparent 66%);background-size:200% 100%;animation:desk-water-shimmer 6s ease-in-out infinite alternate;opacity:.25}
+.desk-tank-hint{position:absolute;top:100%;left:50%;display:flex;align-items:center;gap:5px;transform:translateX(-50%);margin-top:7px;padding:9px 12px;border:1px solid #dbb6818c;border-radius:20px;background:#151711d9;color:#f1d8ad;font-size:12px;line-height:1;font-family:inherit;white-space:nowrap;transition:background .2s,border-color .2s;box-shadow:0 3px 12px #17110940}
+.desk-tank-hint img{opacity:.8;filter:brightness(0) invert(.9)}
+.ideal-desk-aquarium:hover .desk-tank-hint,.ideal-desk-aquarium:focus-visible .desk-tank-hint{background:#55412bdc;border-color:#fff1d1}
+@keyframes desk-water-shimmer{from{background-position:90% 0}to{background-position:10% 0}}
+/* Both launchers share one lazy-loaded, reusable WebGL dialog. */
+body.ideal-aquarium-dialog-open{overflow:hidden}
+.ideal-aquarium-dialog{position:fixed;inset:0;margin:auto;padding:0;width:min(1320px,96vw);max-width:none;height:min(820px,92dvh);max-height:none;overflow:hidden;color:#f6e7cf;background:#0e1115;border:1px solid #917650;border-radius:14px;box-shadow:0 20px 95px #000e}
+/* Keep a suspended iframe measurable so closing cannot resize WebGL to zero. */
+.ideal-aquarium-dialog:not([open]){display:block;visibility:hidden;pointer-events:none}
+.ideal-aquarium-dialog::backdrop{background:#020408da;backdrop-filter:blur(10px)}
+.ideal-aquarium-dialog-inner{display:flex;flex-direction:column;height:100%;min-height:0}
+.ideal-aquarium-dialog-head{flex:none;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:13px 21px;border-bottom:1px solid #574733;background:linear-gradient(100deg,#27251e,#12161a)}
+.ideal-aquarium-dialog-head span{font-size:9px;letter-spacing:.2em;color:#c6a77c}
+.ideal-aquarium-dialog-head h2{margin:4px 0 0;font:normal 21px/1.35 Georgia,'Noto Serif SC',serif}
+.ideal-aquarium-dialog-actions{display:flex;align-items:center;gap:18px}
+.ideal-aquarium-dialog-actions a{font-size:11px;color:#e1bf8d;text-decoration:none;white-space:nowrap}
+.ideal-aquarium-dialog-actions a:hover{text-decoration:underline}
+.ideal-aquarium-dialog-actions button{display:flex;align-items:center;justify-content:center;flex:none;cursor:pointer;width:44px;height:44px;padding:10px;border-radius:50%;border:1px solid #806848;background:#272522;color:#f4ddb8}
+.ideal-aquarium-dialog-actions button:hover{background:#554128}
+.ideal-aquarium-dialog-actions button img{filter:brightness(0) invert(.9)}
+.ideal-aquarium-dialog-actions button:focus-visible{outline:2px solid #ffe1ac;outline-offset:3px}
+.ideal-aquarium-dialog-frame{flex:1;min-height:0;background:#10151b}
+.ideal-aquarium-dialog-frame iframe{display:block;width:100%;height:100%;border:0;background:#10151b}
+.ideal-aquarium-dialog.is-immersive{width:100vw;height:100dvh;border:0;border-radius:0}
+.ideal-aquarium-dialog.is-immersive .ideal-aquarium-dialog-head{display:none}
+@media(max-width:820px){.ideal-aquarium-dialog{width:100vw;height:100dvh;border:0;border-radius:0}.ideal-aquarium-dialog-head{gap:10px;padding:9px 12px}.ideal-aquarium-dialog-head h2{font-size:16px}.ideal-aquarium-dialog-head span{font-size:8px;letter-spacing:.14em}.ideal-aquarium-dialog-actions{gap:10px}}
+@media(prefers-reduced-motion:reduce){.desk-water-shimmer{animation:none}.ideal-desk-aquarium:after,.desk-tank-hint{transition:none}}
