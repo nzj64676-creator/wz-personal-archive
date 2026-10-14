@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "title": "Comet goldfish",
+  "creator": "somitsu",
+  "creatorUrl": "https://sketchfab.com/somitsu",
+  "uid": "5adcbf784df540a0b46dae8950bd3ec6",
+  "sourceUrl": "https://sketchfab.com/3d-models/5adcbf784df540a0b46dae8950bd3ec6",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "dataset": {
+    "name": "Objaverse",
+    "publisher": "Ai2 / Allen Institute for AI",
+    "url": "https://huggingface.co/datasets/allenai/objaverse",
+    "databaseLicense": "ODC-By 1.0",
+    "databaseLicenseUrl": "https://opendatacommons.org/licenses/by/1-0/",
+    "objectLicenseInMetadata": "by",
+    "publicIndexUrl": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/object-paths.json.gz",
+    "publicMetadataUrl": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/metadata/000-132.json.gz"
+  },
+  "acquisition": {
+    "date": "2026-10-14",
+    "method": "Official public Objaverse UID index and direct GLB download; no protected viewer extraction or access-control bypass.",
+    "downloadUrl": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-132/5adcbf784df540a0b46dae8950bd3ec6.glb"
+  },
+  "file": {
+    "path": "comet-goldfish.glb",
+    "bytes": 5444276,
+    "sha256": "602332af5be64709400a0a14deacca9626052ad04d8dbcbe5479f78b46b6259d",
+    "originalFileUnchanged": true,
+    "texturesEmbedded": true
+  },
+  "runtimeChanges": [
+    "鱼身材质调整为不透明，为原有实体眼球设置深色光学材质以修正导出材质的白色瞳孔，保留鱼鳍透明材质。",
+    "动画首尾平滑重叠与骨骼缓动，增加连续游动和转向控制。",
+    "调整模型比例及场景光照。",
+    "第二阶段使用 Three.js 官方 SkeletonUtils 为各尾金鱼克隆独立骨骼与动作时钟，共享原始几何与贴图。",
+    "第二阶段通过原有 B_DEF_Jaw 和鱼鳃骨骼增加接触食物的张口动作；接触位置取自实际嘴部蒙皮顶点。"
+  ],
+  "endorsement": "The original creator does not endorse this website or its integration."
+}

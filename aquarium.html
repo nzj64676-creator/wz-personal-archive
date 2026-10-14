@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b0b0e">
+  <meta name="description" content="WZ 理想生活中的互动金鱼缸。看五尾真实三维金鱼游动，投喂、近看，享受夕阳与水声。">
+  <title>水中的安静 · WZ. Personal Archive</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%23111115'/%3E%3Ctext x='10' y='44' fill='%23e8dbc6' font-family='Georgia' font-size='35'%3EW%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/aquarium/aquarium.css">
+  <link rel="stylesheet" href="assets/aquarium/cinematic.css">
+  <script type="importmap">{"imports":{"three":"./assets/vendor/three/three.module.min.js","three/addons/":"./assets/vendor/three/addons/"}}</script>
+</head>
+<body class="aquarium-page cinematic-aquarium" data-page="ideal-life.html" data-light="sunset">
+  <a class="skip" href="#main">跳转到观察室</a>
+  <header class="header aquarium-header cinematic-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="WZ. 返回首页">WZ<span>.</span><small>PERSONAL ARCHIVE</small></a>
+      <nav class="desktop-nav" aria-label="主导航">
+        <a href="index.html">首页</a><a href="identity.html">八维人格</a><a href="atlas.html">兴趣地图</a><a href="footprints.html">城市足迹</a><a href="dialog.html">观点互动</a><a href="ideal-life.html" class="is-active">理想生活 <span>走进向往的日常</span></a><a href="notes.html">生活档案</a><a href="connect.html">联系我</a>
+      </nav>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="mobileNav">菜单 <img class="cinematic-icon" src="assets/aquarium/icons/menu.svg" alt="" width="16" height="16"></button>
+    </div>
+  </header>
+  <nav id="mobileNav" class="mobile-nav" aria-label="移动端导航" hidden>
+    <a href="index.html">首页 <span>个人首页</span></a><a href="identity.html">八维人格 <span>八种性格维度</span></a><a href="atlas.html">兴趣地图 <span>探索兴趣领域</span></a><a href="footprints.html">城市足迹 <span>我的旅行地图</span></a><a href="dialog.html">观点互动 <span>交流与选择</span></a><a href="ideal-life.html">理想生活 <span>走进向往的日常</span></a><a href="notes.html">生活档案 <span>学习与生活</span></a><a href="connect.html">联系我 <span>社交方式</span></a>
+  </nav>
+  <main id="main" class="aquarium-main cinematic-main">
+    <div class="cinematic-stage">
+      <section class="cinematic-copy" aria-labelledby="aquariumTitle">
+        <p class="cinematic-eyebrow">WZ. / MY PRIVATE UNIVERSE</p>
+        <h1 id="aquariumTitle">水中的安静</h1>
+        <p class="cinematic-subtitle">一缸金鱼，一束阳光，<br class="cinematic-subtitle-break">一段属于自己的安静时光。</p>
+        <p class="cinematic-reflection">看着它们在水中悠然游动，<br>时间似乎也慢了下来。<br>在忙碌的生活里，这一方水族箱<br>是我与内心平静相遇的地方。</p>
+        <p class="cinematic-inspection-entry-note">指向金鱼滚动鼠标滚轮，靠近看看。</p>
+        <a class="cinematic-return" href="ideal-life.html"><img class="cinematic-icon" src="assets/aquarium/icons/arrow-left.svg" alt="" width="18" height="18"><span>返回理想生活</span></a>
+      </section>
+
+      <section class="aquarium-observatory" aria-label="三维金鱼观察室">
+        <div class="aquarium-scene" id="aquariumScene">
+          <canvas id="aquariumCanvas" tabindex="0" aria-label="视角固定的三维鱼缸。可点击投喂、选择金鱼，或指向金鱼滚轮打开独立近看视窗。"></canvas>
+          <div class="aquarium-caption"><span>WZ. / QUIET WATER</span><span id="viewCaption">夕光落入水中</span></div>
+          <div class="aquarium-loading" id="aquariumLoading" role="status"><span class="loading-orbit"></span><strong>正在打开这一缸安静</strong><p id="loadMessage">加载本地金鱼与材质…</p></div>
+          <div class="aquarium-status"><span class="status-dot" id="statusDot"></span><span id="aquariumStatus" aria-live="polite">正在准备</span></div>
+          <p class="aquarium-gesture" id="gestureHint">鱼缸视角固定 · 指向金鱼滚轮近看</p>
+          <div class="aquarium-toast" id="aquariumToast" role="status" hidden></div>
+        </div>
+        <div class="aquarium-secondary-controls aquarium-buttons" role="group" aria-label="游动与灯光控制">
+          <button id="pauseFish" type="button" aria-pressed="false" disabled>暂停游动</button>
+          <button id="detailView" type="button" aria-pressed="false" disabled>近看金鱼</button>
+          <button id="singleFish" type="button" aria-pressed="false" disabled>单鱼观察</button>
+          <button id="sunsetMode" type="button" aria-pressed="true">夕阳</button>
+        </div>
+        <div class="aquarium-toolbar cinematic-dock aquarium-buttons" role="group" aria-label="鱼缸互动">
+          <button id="feedFish" class="aquarium-feed cinematic-dock-button" type="button" aria-pressed="false" disabled>
+            <img class="cinematic-icon" src="assets/aquarium/icons/feed.svg" alt="" width="30" height="30"><span><strong>投喂</strong><small>给它们一点小零食</small></span>
+          </button>
+          <button id="immersiveButton" class="cinematic-dock-button" type="button" aria-pressed="false">
+            <img class="cinematic-icon" src="assets/aquarium/icons/eye.svg" alt="" width="31" height="31"><span><strong data-immersive-label>观察模式</strong><small>静下心来看它们游动</small></span>
+          </button>
+          <button id="nightMode" class="cinematic-dock-button" type="button" aria-pressed="false">
+            <img class="cinematic-icon" src="assets/aquarium/icons/sun.svg" alt="" width="31" height="31"><span><strong>切换灯光</strong><small id="lightState">夕阳 / 夜色</small></span>
+          </button>
+          <button id="soundWater" class="cinematic-dock-button" type="button" aria-pressed="false">
+            <img class="cinematic-icon" src="assets/aquarium/icons/volume.svg" alt="" width="31" height="31"><span><strong>水声</strong><small id="soundState">关闭 · 点击开启</small></span>
+          </button>
+        </div>
+      </section>
+        <section id="fishInspection" class="fish-inspection" aria-labelledby="inspectionTitle" hidden>
+          <header class="fish-inspection-header">
+            <div><span class="fish-inspection-eyebrow">A CLOSER LOOK</span><h2 id="inspectionTitle">金鱼近看</h2><p id="inspectionBreed">选择一条金鱼，慢慢观察。</p></div>
+            <button id="closeInspection" type="button" aria-label="关闭金鱼近看"><img class="cinematic-icon" src="assets/aquarium/icons/close.svg" alt="" width="20" height="20"></button>
+          </header>
+          <div class="fish-inspection-view"><canvas id="inspectionCanvas" tabindex="0" aria-label="单条三维金鱼近看。可拖动旋转观察，滚轮放大或缩小。"></canvas></div>
+          <p class="fish-inspection-hint"><img class="cinematic-icon" src="assets/aquarium/icons/eye.svg" alt="" width="15" height="15"><span>拖动旋转 · 滚轮缩放</span></p>
+        </section>
+
+      <aside class="cinematic-sidebar" aria-label="金鱼与水族箱状态">
+        <section class="aquarium-residents cinematic-panel" aria-label="我的金鱼">
+          <div class="cinematic-panel-head"><h2>我的金鱼</h2><button id="openAtlas" type="button" aria-label="打开金鱼图鉴"><img class="cinematic-icon cinematic-next-icon" src="assets/aquarium/icons/arrow-left.svg" alt="" width="16" height="16"></button></div>
+          <div class="aquarium-fish-list" id="fishList"></div>
+        </section>
+        <section class="cinematic-panel cinematic-water-status" aria-labelledby="waterStatusTitle">
+          <div class="cinematic-panel-head"><h2 id="waterStatusTitle">水族箱状态</h2><span class="cinematic-simulation-label">情景模拟</span></div>
+          <dl>
+            <div><dt><img class="cinematic-icon" src="assets/aquarium/icons/thermometer.svg" alt="" width="14" height="14">水温</dt><dd>24°C</dd></div>
+            <div><dt><img class="cinematic-icon" src="assets/aquarium/icons/droplets.svg" alt="" width="14" height="14">水质</dt><dd>清澈</dd></div>
+            <div><dt><img class="cinematic-icon" src="assets/aquarium/icons/filter.svg" alt="" width="14" height="14">过滤运行</dt><dd>正常</dd></div>
+            <div><dt><img class="cinematic-icon" src="assets/aquarium/icons/leaf.svg" alt="" width="14" height="14">水草状态</dt><dd>良好</dd></div>
+            <div><dt>光线</dt><dd id="statusWaterTime">夕阳</dd></div>
+            <div><dt>本次投喂</dt><dd id="statusFeedCount">0 次</dd></div>
+          </dl>
+          <p class="cinematic-simulation-note">水温、水质、过滤与水草为情景设定。</p>
+        </section>
+      </aside>
+    </div>
+    <section class="cinematic-context wrap" aria-label="观察提示与模型说明">
+      <div class="aquarium-notes">
+        <p><span>A LITTLE RITUAL</span>点击“投喂”，再在缸内轻点一下。食物缓缓下沉，金鱼会游近寻找。指向金鱼滚轮可打开近看视窗，在视窗里拖动旋转、滚轮缩放；鱼缸保持原来的位置。</p>
+        <p><span>TAKE YOUR TIME</span>切换夜色，或进入沉浸观察。选择一条金鱼，暂停后细看鳞片、鳃盖与鱼鳍。</p>
+      </div>
+      <details class="aquarium-provenance">
+        <summary>模型来源、授权与验证信息 <span>＋</span></summary>
+        <div id="modelCredits">正在加载本地模型信息。</div><dl id="modelFacts"></dl>
+        <p class="aquarium-legal">模型、贴图、Three.js 与加载器均从本站本地资源加载。水温、水质等为情景设定，不连接实体鱼缸传感器。背景客厅为场景图，鱼缸与金鱼实时三维渲染。</p>
+      </details>
+    </section>
+  </main>
+  <dialog id="fishAtlas" class="aquarium-atlas" aria-labelledby="atlasTitle"><div class="aquarium-atlas-head"><div><p class="overline">WZ. / AQUATIC ARCHIVE</p><h2 id="atlasTitle">这一缸，<em>各有节奏。</em></h2></div><button id="closeAtlas" type="button" aria-label="关闭金鱼图鉴">×</button></div><p class="aquarium-atlas-lede">三尾彗星金鱼与两尾土佐金。这里的名字和游动习性属于观察室中的虚拟个体。</p><div id="atlasCards" class="aquarium-atlas-cards"></div><p class="aquarium-atlas-source">形态来自 somitsu 的 Comet 与 Tosakin 真实模型，均采用 CC BY 4.0 授权。<a href="aquarium-phase1.html">回看第一阶段单鱼验证 ↗</a></p></dialog>
+  <footer class="aquarium-footer wrap">AN ORDINARY DAY, BY DESIGN. <span>© 2026 WZ.</span></footer>
+  <noscript><p class="wrap">三维观察室需要开启 JavaScript。<a href="ideal-life.html">返回理想生活</a></p></noscript>
+  <script defer src="assets/app.js"></script>
+  <script type="module" src="assets/aquarium/aquarium-v2.js"></script>
+</body>
+</html>
