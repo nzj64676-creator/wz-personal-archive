@@ -20,4 +20,6 @@
 
 此开发分支新增 `aquarium.html`，以及“理想生活”中的延迟加载鱼缸入口。五尾真实骨骼金鱼、投喂/进食、夕阳/夜色、图鉴和沉浸观察见 [第二阶段说明](AQUARIUM_PHASE2.md)。本地需要通过 HTTP 服务打开，并使用支持 WebGL 2 的浏览器。渲染库、模型和贴图都保存在 `assets/`，无需外部 CDN。
 
+参考图的夕阳客厅、玻璃缸灯和黑金界面升级见 [氛围版说明](AQUARIUM_ATMOSPHERE.md)。金鱼通过独立近看视窗旋转和缩放，鱼缸与客厅构图保持固定。
+
 此分支仍用于验收，没有替换 main 的正式站点。原始单鱼验证保存在 `aquarium-phase1.html`。模型作者署名、许可和校验记录见 [模型授权说明](assets/aquarium/models/ATTRIBUTION.md)。

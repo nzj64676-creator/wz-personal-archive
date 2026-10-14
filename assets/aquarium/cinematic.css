@@ -1,0 +1,273 @@
+/* This scene belongs only to the new observation page. Phase-one and the
+   surrounding archive keep their existing styles and layout. */
+.cinematic-aquarium{--cinematic-header-height:92px;background:#11110f;color:#f7efdf}
+.cinematic-aquarium .cinematic-header{position:relative;width:100%;height:var(--cinematic-header-height);padding:0;margin:0;border-color:#292821;background:#0b0d0df7;backdrop-filter:blur(16px)}
+.cinematic-aquarium .cinematic-header .header-inner{width:min(100% - 110px,1480px)}
+.cinematic-aquarium .brand{font-size:36px}
+.cinematic-aquarium .brand small{letter-spacing:.26em;color:#969994}
+.cinematic-aquarium .desktop-nav{gap:clamp(15px,1.8vw,28px)}
+.cinematic-aquarium .desktop-nav a{font-size:11px;letter-spacing:.035em}
+.cinematic-aquarium .menu-button img{vertical-align:middle;margin-left:8px}
+.cinematic-aquarium .cinematic-main{width:100%;margin:0;padding:0}
+.cinematic-aquarium .cinematic-stage{position:relative;isolation:isolate;height:calc(100svh - var(--cinematic-header-height));min-height:690px;overflow:hidden;background:#2b2219}
+.cinematic-aquarium .cinematic-stage:before{content:"";position:absolute;inset:0;z-index:-2;background:url('./images/sunset-room.webp') center center/cover no-repeat;filter:brightness(.95) saturate(1);transition:filter 1.5s}
+.cinematic-aquarium .cinematic-stage:after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#060907a8 0%,#090a0759 22%,#090a0700 50%,#0c0b0826 79%,#04080570 100%),linear-gradient(0deg,#100c0980,transparent 30%,transparent 80%,#19100718)}
+.cinematic-aquarium[data-light=night] .cinematic-stage:before{filter:brightness(.39) saturate(.55) hue-rotate(12deg)}
+.cinematic-aquarium .cinematic-copy{position:absolute;z-index:4;left:5.5%;top:12.5%;width:29%;max-width:650px;text-shadow:0 2px 20px #05060266}
+.cinematic-aquarium .cinematic-eyebrow{margin:0 0 30px;font-size:10px;letter-spacing:.23em;font-weight:600;color:#d9cbb2}
+.cinematic-aquarium .cinematic-copy h1{margin:0 0 21px;font:normal clamp(43px,4.3vw,84px)/1.23 var(--serif);letter-spacing:.055em;color:#fff9ee;white-space:nowrap}
+.cinematic-aquarium .cinematic-subtitle{margin:0;font:normal clamp(15px,1.36vw,25px)/1.8 var(--serif);letter-spacing:.035em;color:#f2e5cd}
+.cinematic-aquarium .cinematic-subtitle-break{display:none}
+.cinematic-aquarium .cinematic-reflection{margin:31px 0 27px;font-size:clamp(12px,.95vw,17px);line-height:1.95;letter-spacing:.035em;color:#ece3d0}
+.cinematic-aquarium .cinematic-inspection-entry-note{margin:0 0 17px;font-size:10px;line-height:1.8;color:#d9c7a7;letter-spacing:.03em}
+.cinematic-aquarium .cinematic-return{display:inline-flex;align-items:center;justify-content:center;gap:16px;padding:13px 25px;min-width:166px;min-height:46px;font-size:12px;font-weight:600;color:#eee2c7;border:1px solid #d1b9869c;border-radius:99px;background:#10130fb3;box-shadow:inset 0 0 0 3px #080b0833,0 10px 24px #0003;backdrop-filter:none;transition:background .2s,border-color .2s}
+.cinematic-aquarium .cinematic-return:hover{background:#3b3024cc;border-color:#e6c995}
+.cinematic-aquarium .cinematic-icon{flex:none;object-fit:contain;filter:brightness(0) saturate(100%) invert(81%) sepia(21%) saturate(445%) hue-rotate(354deg) brightness(90%) contrast(91%)}
+.cinematic-aquarium .cinematic-next-icon{transform:rotate(180deg)}
+
+/* Only the room is a background image. All glass, water, fish and plants in
+   this transparent canvas are drawn by the live Three.js scene. */
+.cinematic-aquarium .aquarium-observatory{position:absolute;z-index:3;left:32.5%;top:8%;width:51%;height:74%;border:0;border-radius:0;overflow:visible;background:none;box-shadow:none}
+.cinematic-aquarium .aquarium-scene{width:100%;height:100%;min-height:0;background:transparent;overflow:hidden;isolation:isolate;border-radius:0}
+.cinematic-aquarium .aquarium-scene:before,.cinematic-aquarium .aquarium-scene:after{display:none}
+.cinematic-aquarium #aquariumCanvas{height:100%;width:100%;background:transparent}
+.cinematic-aquarium .aquarium-caption{top:0;left:24px;right:auto;max-width:65%;gap:4px;opacity:.62;font-size:8px}
+.cinematic-aquarium .aquarium-caption>span:first-child{display:none}
+.cinematic-aquarium .aquarium-caption>span:last-child{font-size:9px;letter-spacing:.08em;color:#f5e5c7}
+.cinematic-aquarium .aquarium-status{position:absolute;left:50%;bottom:56px;transform:translateX(-50%);z-index:2;gap:7px;white-space:nowrap;font-size:9px;color:#e2d6bd;text-shadow:0 1px 7px #000b;pointer-events:none}
+.cinematic-aquarium .aquarium-gesture{bottom:35px;margin:0;font-size:9px;letter-spacing:.035em;color:#c8bca3;text-shadow:0 1px 7px #000e}
+.cinematic-aquarium .aquarium-loading{inset:5% 3% 10%;border:1px solid #bb9c5740;border-radius:16px;background:#171b14c7;backdrop-filter:blur(10px)}
+.cinematic-aquarium .aquarium-loading strong{font-size:23px}
+.cinematic-aquarium .aquarium-toast{bottom:102px;font-size:11px;background:#141b13e6;border-color:#c1a47d77;box-shadow:0 10px 35px #0004}
+.cinematic-aquarium .aquarium-secondary-controls{position:absolute;left:50%;bottom:0;z-index:5;transform:translateX(-50%);width:max-content;max-width:105%;display:flex;flex-wrap:nowrap;justify-content:center;gap:5px}
+.cinematic-aquarium .aquarium-secondary-controls button{min-width:0;min-height:30px;padding:5px 9px;border-radius:99px;font-size:9px;line-height:1.5;font-weight:500;white-space:nowrap;background:#111610cf;border:1px solid #c9ae774f;color:#d3c4a8;backdrop-filter:blur(10px)}
+.cinematic-aquarium .aquarium-secondary-controls button:hover,.cinematic-aquarium .aquarium-secondary-controls button[aria-pressed=true]{background:#5a462dcf;border-color:#c9ab75;color:#ffecd0}
+.cinematic-aquarium .aquarium-secondary-controls button:disabled{cursor:wait;opacity:.45}
+
+.cinematic-aquarium .cinematic-dock{position:absolute;z-index:7;left:50%;bottom:-108px;transform:translateX(-50%);width:clamp(630px,49vw,1040px);max-width:none;min-height:87px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:7px;border:1px solid #ccb1789c;border-radius:99px;background:linear-gradient(125deg,#151914f0,#131311f2);box-shadow:0 16px 45px #0008,inset 0 0 0 4px #111410,0 0 0 5px #090c0b5e;backdrop-filter:blur(17px)}
+.cinematic-aquarium .cinematic-dock .cinematic-dock-button{display:flex;justify-content:center;align-items:center;gap:14px;text-align:left;min-width:0;min-height:72px;padding:13px 17px;border:1px solid #aa906252;border-radius:99px;background:#15181377;line-height:1.35;white-space:normal;color:#f6e8cb}
+.cinematic-aquarium .cinematic-dock .cinematic-dock-button img{width:27px;height:27px}
+.cinematic-aquarium .cinematic-dock .cinematic-dock-button>span{display:block;min-width:0}
+.cinematic-aquarium .cinematic-dock .cinematic-dock-button strong{display:block;font-size:clamp(12px,.94vw,17px);font-weight:600;letter-spacing:.025em;white-space:nowrap}
+.cinematic-aquarium .cinematic-dock .cinematic-dock-button small{display:block;font-size:clamp(9px,.66vw,12px);font-weight:400;margin-top:6px;color:#c4b495;letter-spacing:.01em;white-space:nowrap}
+.cinematic-aquarium .cinematic-dock #feedFish{background:linear-gradient(115deg,#7d5837eb,#654832df);border-color:#c8a16dab;box-shadow:inset 0 0 20px #e3c69d08}
+.cinematic-aquarium .cinematic-dock #feedFish[aria-pressed=true]{background:linear-gradient(115deg,#bd8a4bea,#8d622ff0);border-color:#f4d096;color:#fff5e5}
+.cinematic-aquarium .cinematic-dock #feedFish small{color:#eed7b1}
+.cinematic-aquarium .cinematic-dock .cinematic-dock-button:hover,.cinematic-aquarium .cinematic-dock .cinematic-dock-button[aria-pressed=true]{border-color:#d4b47e;background-color:#6b54316b}
+.cinematic-aquarium .cinematic-dock .cinematic-dock-button:disabled{opacity:.52;cursor:wait}
+
+.cinematic-aquarium .cinematic-sidebar{position:absolute;z-index:6;right:3.8%;top:9.5%;width:14.5%;min-width:200px;max-width:280px;display:grid;gap:14px}
+.cinematic-aquarium .cinematic-panel{padding:15px;border:1px solid #b59b626b;border-radius:15px;background:linear-gradient(135deg,#111713f3,#0d120fea);box-shadow:0 9px 25px #0007,inset 0 0 0 4px #12160f7a;backdrop-filter:blur(17px)}
+.cinematic-aquarium .aquarium-residents{padding-top:15px}
+.cinematic-aquarium .cinematic-panel-head{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:24px;margin-bottom:9px}
+.cinematic-aquarium .cinematic-panel-head h2{font-size:14px;line-height:1.5;letter-spacing:.035em;font-weight:600;color:#f0e1c6;margin:0}
+.cinematic-aquarium .cinematic-panel-head button{display:flex;align-items:center;justify-content:center;width:24px;height:26px;padding:0;border:0;background:transparent;border-radius:5px;color:#d8bd8c}
+.cinematic-aquarium .cinematic-panel-head button:hover{background:#7a623c47}
+.cinematic-aquarium .aquarium-fish-list{display:block;padding:0;overflow:visible}
+.cinematic-aquarium .fish-row{display:flex;align-items:center;gap:4px;border-top:1px solid #b5a16e22;min-height:65px}
+.cinematic-aquarium .fish-row:first-child{border-top:0}
+.cinematic-aquarium .aquarium-fish-list [data-fish]{position:relative;display:flex;align-items:center;gap:10px;flex:1;min-width:0;min-height:65px;margin:0;padding:5px 0;border:0;border-radius:4px;background:none;text-align:left;box-shadow:none;color:#eee1c7}
+.cinematic-aquarium .aquarium-fish-list>[data-fish]{border-top:1px solid #b5a16e22}
+.cinematic-aquarium .aquarium-fish-list>[data-fish]:first-child{border-top:0}
+.cinematic-aquarium .aquarium-fish-list [data-fish]:hover,.cinematic-aquarium .aquarium-fish-list [data-fish][aria-pressed=true]{background:linear-gradient(90deg,#d6b97517,transparent);border-color:#b5a16e22}
+.cinematic-aquarium .fish-portrait,.cinematic-aquarium .aquarium-fish-list [data-fish]>img{display:block;flex:none;width:51px;height:51px;object-fit:cover;border:1px solid #c5b07c88;border-radius:50%;background:radial-gradient(circle,#77664888,#1a2118);box-shadow:inset 0 0 12px #a388464a}
+.cinematic-aquarium .fish-copy{display:block;min-width:0}
+.cinematic-aquarium .fish-portrait[hidden]{display:none}
+.cinematic-aquarium .aquarium-fish-list strong{display:block;margin:0 0 3px;font:600 13px/1.5 var(--sans);letter-spacing:.025em;color:#f4e5c7}
+.cinematic-aquarium .aquarium-fish-list small{display:block;font-size:9px;line-height:1.5;color:#c4baa3;white-space:nowrap}
+.cinematic-aquarium .fish-marker,.cinematic-aquarium .fish-card-arrow{display:none}
+.cinematic-aquarium .aquarium-fish-list .fish-favorite{display:flex;align-items:center;justify-content:center;flex:0 0 27px;min-width:27px;width:27px;min-height:34px;padding:4px;margin:0;border:0;border-radius:6px;background:transparent;color:#c7b283;box-shadow:none}
+.cinematic-aquarium .fish-favorite img{width:20px;height:20px;opacity:.8}
+.cinematic-aquarium .fish-favorite:hover,.cinematic-aquarium .fish-favorite[aria-pressed=true]{background:#9b78442c}
+.cinematic-aquarium .fish-favorite[aria-pressed=true] img{opacity:1;filter:brightness(0) saturate(100%) invert(84%) sepia(51%) saturate(738%) hue-rotate(337deg) brightness(103%) contrast(101%);transform:scale(1.08)}
+.cinematic-aquarium .cinematic-simulation-label{font-size:8px;color:#9b9887;letter-spacing:.06em;white-space:nowrap}
+.cinematic-aquarium .cinematic-water-status dl{margin:0}
+.cinematic-aquarium .cinematic-water-status dl>div{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:35px;border-top:1px solid #b5a16e23;font-size:11px}
+.cinematic-aquarium .cinematic-water-status dt{display:flex;align-items:center;gap:5px;color:#bfb7a4}
+.cinematic-aquarium .cinematic-water-status dt img{opacity:.7}
+.cinematic-aquarium .cinematic-water-status dd{margin:0;color:#eddfbc;white-space:nowrap;font-size:11px;font-weight:600}
+.cinematic-aquarium .cinematic-simulation-note{margin:8px 0 0;font-size:8px;line-height:1.7;color:#999687}
+.cinematic-aquarium .cinematic-context{padding-top:32px;padding-bottom:14px}
+.cinematic-aquarium .cinematic-context .aquarium-notes{padding-top:0;padding-bottom:22px}
+.cinematic-aquarium .aquarium-provenance{margin-top:0}
+.cinematic-aquarium .aquarium-footer{padding-top:20px;color:#8c826d}
+
+/* Native fullscreen and the CSS fallback share a large, unobstructed canvas. */
+.cinematic-aquarium.aq-immersive .aquarium-observatory,.cinematic-aquarium .aquarium-observatory:fullscreen{position:fixed;inset:0;left:0;top:0;z-index:100;width:100%;height:100%;display:flex;flex-direction:column;padding:24px 28px 22px;background:linear-gradient(90deg,#10130977,#15140c33,#0a0d0988),url('./images/sunset-room.webp') center/cover no-repeat;overflow:hidden}
+.cinematic-aquarium.aq-immersive .aquarium-scene,.cinematic-aquarium .aquarium-observatory:fullscreen .aquarium-scene{flex:1 1 0;min-height:0;height:auto;max-height:calc(100dvh - 215px)}
+.cinematic-aquarium.aq-immersive .aquarium-secondary-controls,.cinematic-aquarium .aquarium-observatory:fullscreen .aquarium-secondary-controls{position:static;transform:none;left:auto;bottom:auto;max-width:100%;width:auto;flex:none;flex-wrap:wrap;margin:8px auto 13px}
+.cinematic-aquarium.aq-immersive .cinematic-dock,.cinematic-aquarium .aquarium-observatory:fullscreen .cinematic-dock{position:static;transform:none;left:auto;bottom:auto;width:min(1040px,92%);flex:none;margin:0 auto}
+.cinematic-aquarium.aq-immersive .cinematic-copy,.cinematic-aquarium.aq-immersive .cinematic-sidebar{visibility:hidden}
+.cinematic-aquarium.aq-immersive .cinematic-header,.cinematic-aquarium.aq-immersive #mobileNav{visibility:hidden;pointer-events:none}
+.cinematic-aquarium.aq-immersive .aquarium-status,.cinematic-aquarium .aquarium-observatory:fullscreen .aquarium-status{bottom:35px}
+.cinematic-aquarium.aq-immersive .aquarium-gesture,.cinematic-aquarium .aquarium-observatory:fullscreen .aquarium-gesture{bottom:15px}
+
+@media(min-width:1101px) and (max-height:850px){
+  .cinematic-aquarium .cinematic-stage{min-height:650px}
+  .cinematic-aquarium .cinematic-copy{top:11%}
+  .cinematic-aquarium .cinematic-eyebrow{margin-bottom:22px}
+  .cinematic-aquarium .cinematic-copy h1{margin-bottom:16px}
+  .cinematic-aquarium .cinematic-reflection{margin-top:22px;margin-bottom:22px}
+  .cinematic-aquarium .cinematic-sidebar{top:7%;gap:10px}
+  .cinematic-aquarium .cinematic-panel{padding:12px}
+  .cinematic-aquarium .fish-row,.cinematic-aquarium .aquarium-fish-list [data-fish]{min-height:56px}
+  .cinematic-aquarium .fish-portrait,.cinematic-aquarium .aquarium-fish-list [data-fish]>img{width:45px;height:45px}
+  .cinematic-aquarium .cinematic-water-status dl>div{min-height:30px}
+  .cinematic-aquarium .cinematic-dock{bottom:-97px;min-height:80px}
+  .cinematic-aquarium .cinematic-dock .cinematic-dock-button{min-height:65px}
+}
+@media(min-width:1101px) and (max-width:1450px){
+  .cinematic-aquarium .cinematic-copy{left:4%;width:29%}
+  .cinematic-aquarium .cinematic-subtitle-break{display:block}
+  .cinematic-aquarium .cinematic-sidebar{right:2%;width:16%;min-width:192px}
+  .cinematic-aquarium .aquarium-observatory{left:31%;width:51%}
+  .cinematic-aquarium .cinematic-dock .cinematic-dock-button{gap:10px;padding-inline:12px}
+}
+
+@media(max-width:1100px){
+  .cinematic-aquarium{--cinematic-header-height:72px}
+  .cinematic-aquarium .cinematic-header .header-inner{width:calc(100% - 48px)}
+  .cinematic-aquarium .cinematic-header .brand{font-size:31px}
+  .cinematic-aquarium .mobile-nav{top:var(--cinematic-header-height)}
+  .cinematic-aquarium .cinematic-stage{height:auto;min-height:calc(100svh - var(--cinematic-header-height));display:flex;flex-direction:column;padding:35px 26px 30px;gap:24px;overflow:hidden}
+  .cinematic-aquarium .cinematic-stage:before{background-position:38% top;background-attachment:fixed}
+  .cinematic-aquarium .cinematic-stage:after{background:linear-gradient(180deg,#0c100b83,#10100929 25%,#07100b8f 70%,#10100ee6)}
+  .cinematic-aquarium .cinematic-copy{position:static;max-width:none;width:100%;margin:0}
+  .cinematic-aquarium .cinematic-eyebrow{font-size:9px;margin:0 0 13px}
+  .cinematic-aquarium .cinematic-copy h1{font-size:46px;letter-spacing:.05em;margin-bottom:14px}
+  .cinematic-aquarium .cinematic-subtitle{font-size:17px;max-width:550px}
+  .cinematic-aquarium .cinematic-subtitle-break{display:none}
+  .cinematic-aquarium .cinematic-reflection{display:none}
+  .cinematic-aquarium .cinematic-return{position:absolute;right:26px;top:40px;min-width:0;min-height:37px;padding:8px 13px;font-size:10px;gap:8px}
+  .cinematic-aquarium .aquarium-observatory{position:relative;top:auto;left:auto;width:100%;height:auto;min-width:0}
+  .cinematic-aquarium .aquarium-scene{height:clamp(410px,65vw,620px);min-height:0;overflow:hidden}
+  .cinematic-aquarium .aquarium-caption{top:0;left:14px}
+  .cinematic-aquarium .aquarium-status{bottom:31px}
+  .cinematic-aquarium .aquarium-gesture{bottom:9px}
+  .cinematic-aquarium .aquarium-secondary-controls{position:static;transform:none;left:auto;bottom:auto;width:100%;max-width:none;flex-wrap:wrap;margin:8px 0 17px;gap:6px}
+  .cinematic-aquarium .aquarium-secondary-controls button{flex:none;min-height:33px;font-size:10px;padding:6px 11px}
+  .cinematic-aquarium .cinematic-dock{position:static;transform:none;left:auto;bottom:auto;width:min(900px,100%);margin:0 auto;max-width:100%;min-height:87px;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+  .cinematic-aquarium .cinematic-dock .cinematic-dock-button{gap:10px;padding:13px 12px}
+  .cinematic-aquarium .cinematic-dock .cinematic-dock-button strong{font-size:13px}
+  .cinematic-aquarium .cinematic-dock .cinematic-dock-button small{font-size:9px}
+  .cinematic-aquarium .cinematic-sidebar{position:static;right:auto;top:auto;width:100%;min-width:0;max-width:none;grid-template-columns:1.1fr 1fr;gap:15px}
+  .cinematic-aquarium .cinematic-panel{padding:18px}
+  .cinematic-aquarium .cinematic-panel-head h2{font-size:15px}
+  .cinematic-aquarium .cinematic-panel-head{margin-bottom:10px}
+  .cinematic-aquarium .aquarium-fish-list [data-fish],.cinematic-aquarium .fish-row{min-height:60px}
+  .cinematic-aquarium .cinematic-water-status dl>div{min-height:43px;font-size:12px}
+  .cinematic-aquarium .cinematic-water-status dd{font-size:12px}
+  .cinematic-aquarium .cinematic-simulation-note{font-size:9px}
+  .cinematic-aquarium .cinematic-context{width:calc(100% - 52px)}
+}
+@media(max-width:650px){
+  .cinematic-aquarium .cinematic-header .header-inner{width:calc(100% - 32px)}
+  .cinematic-aquarium .brand small{font-size:8px;letter-spacing:.17em}
+  .cinematic-aquarium .cinematic-stage{padding:28px 14px 22px;gap:14px}
+  .cinematic-aquarium .cinematic-copy{padding-inline:5px}
+  .cinematic-aquarium .cinematic-eyebrow{font-size:8px;margin-bottom:16px}
+  .cinematic-aquarium .cinematic-copy h1{font-size:38px;margin-bottom:10px}
+  .cinematic-aquarium .cinematic-subtitle{max-width:310px;font-size:13px;line-height:1.9}
+  .cinematic-aquarium .cinematic-subtitle-break{display:block}
+  .cinematic-aquarium .cinematic-return{right:16px;top:29px;padding:7px 10px;font-size:9px;gap:5px}
+  .cinematic-aquarium .cinematic-return .cinematic-icon{width:13px;height:13px}
+  .cinematic-aquarium .aquarium-scene{height:440px;margin-top:3px}
+  .cinematic-aquarium .aquarium-caption{top:4px;max-width:100%}
+  .cinematic-aquarium .aquarium-caption span:last-child{display:block}
+  .cinematic-aquarium .aquarium-secondary-controls{margin-bottom:14px;gap:5px}
+  .cinematic-aquarium .aquarium-secondary-controls button{min-height:34px;padding:7px 9px;font-size:9px}
+  .cinematic-aquarium .cinematic-dock{border-radius:27px;grid-template-columns:repeat(2,minmax(0,1fr));padding:6px;gap:5px}
+  .cinematic-aquarium .cinematic-dock .cinematic-dock-button{min-height:67px;justify-content:flex-start;gap:12px;padding:11px 18px;border-radius:22px}
+  .cinematic-aquarium .cinematic-dock .cinematic-dock-button img{width:26px;height:26px}
+  .cinematic-aquarium .cinematic-dock .cinematic-dock-button strong{font-size:13px}
+  .cinematic-aquarium .cinematic-dock .cinematic-dock-button small{font-size:9px;margin-top:4px}
+  .cinematic-aquarium .cinematic-sidebar{display:flex;flex-direction:column;gap:12px;margin-top:9px}
+  .cinematic-aquarium .cinematic-panel{padding:15px;border-radius:13px}
+  .cinematic-aquarium .aquarium-fish-list{display:flex;gap:10px;overflow-x:auto;padding:0 0 6px;scrollbar-width:thin;scrollbar-color:#8d7346 #182016}
+  .cinematic-aquarium .fish-row{flex:0 0 146px;gap:0;border-top:0;border-right:1px solid #b5a16e23;padding-right:10px}
+  .cinematic-aquarium .aquarium-fish-list>[data-fish]{flex:0 0 136px;border-top:0;border-right:1px solid #b5a16e23}
+  .cinematic-aquarium .aquarium-fish-list [data-fish]{gap:8px;min-height:61px}
+  .cinematic-aquarium .fish-portrait,.cinematic-aquarium .aquarium-fish-list [data-fish]>img{width:44px;height:44px}
+  .cinematic-aquarium .aquarium-fish-list strong{font-size:12px}
+  .cinematic-aquarium .aquarium-fish-list small{font-size:8px}
+  .cinematic-aquarium .aquarium-fish-list .fish-favorite{flex-basis:25px;min-width:25px;width:25px;padding:3px}
+  .cinematic-aquarium .fish-favorite img{width:17px;height:17px}
+  .cinematic-aquarium .cinematic-water-status dl{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+  .cinematic-aquarium .cinematic-water-status dl>div{min-height:38px;font-size:11px}
+  .cinematic-aquarium .cinematic-water-status dd{font-size:11px}
+  .cinematic-aquarium .cinematic-context{width:calc(100% - 36px);padding-top:24px}
+  .cinematic-aquarium .aquarium-provenance summary{font-size:11px}
+  .cinematic-aquarium .aquarium-atlas{width:calc(100% - 24px);padding:20px}
+  .cinematic-aquarium.aq-immersive .aquarium-observatory,.cinematic-aquarium .aquarium-observatory:fullscreen{padding:12px 10px max(12px,env(safe-area-inset-bottom))}
+  .cinematic-aquarium.aq-immersive .aquarium-scene,.cinematic-aquarium .aquarium-observatory:fullscreen .aquarium-scene{height:auto;margin-top:0}
+  .cinematic-aquarium.aq-immersive .aquarium-secondary-controls,.cinematic-aquarium .aquarium-observatory:fullscreen .aquarium-secondary-controls{margin:7px auto 10px;gap:4px}
+  .cinematic-aquarium.aq-immersive .cinematic-dock,.cinematic-aquarium .aquarium-observatory:fullscreen .cinematic-dock{width:100%}
+  .cinematic-aquarium.aq-immersive .cinematic-dock-button,.cinematic-aquarium .aquarium-observatory:fullscreen .cinematic-dock-button{min-height:58px}
+}
+
+/* The Ideal Life page embeds this same real canvas without the scene intro. */
+.cinematic-aquarium.aquarium-embedded .cinematic-header,.cinematic-aquarium.aquarium-embedded #mobileNav,.cinematic-aquarium.aquarium-embedded .cinematic-copy,.cinematic-aquarium.aquarium-embedded .cinematic-context,.cinematic-aquarium.aquarium-embedded .aquarium-footer{display:none}
+.cinematic-aquarium.aquarium-embedded .cinematic-stage{height:auto;min-height:0;display:flex;flex-direction:column;gap:15px;padding:14px 17px 16px}
+.cinematic-aquarium.aquarium-embedded .cinematic-stage:before{background-position:center;background-attachment:scroll}
+.cinematic-aquarium.aquarium-embedded .aquarium-observatory{position:relative;left:auto;top:auto;width:100%;height:auto;min-width:0}
+.cinematic-aquarium.aquarium-embedded .aquarium-scene{height:420px;margin-top:0}
+.cinematic-aquarium.aquarium-embedded .aquarium-secondary-controls{position:static;left:auto;bottom:auto;transform:none;width:100%;max-width:100%;flex-wrap:wrap;margin:7px 0 13px}
+.cinematic-aquarium.aquarium-embedded .cinematic-dock{position:static;left:auto;bottom:auto;transform:none;width:min(850px,100%);min-height:80px;margin:0 auto}
+.cinematic-aquarium.aquarium-embedded .cinematic-dock-button{min-height:65px}
+.cinematic-aquarium.aquarium-embedded .cinematic-sidebar{position:static;display:block;width:100%;min-width:0;max-width:none;margin:0}
+.cinematic-aquarium.aquarium-embedded .cinematic-water-status{display:none}
+.cinematic-aquarium.aquarium-embedded .aquarium-residents{padding:10px 13px}
+.cinematic-aquarium.aquarium-embedded .cinematic-panel-head{margin-bottom:5px}
+.cinematic-aquarium.aquarium-embedded .aquarium-fish-list{display:flex;gap:10px;overflow-x:auto;padding-bottom:3px;scrollbar-width:thin;scrollbar-color:#8d7346 #182016}
+.cinematic-aquarium.aquarium-embedded .fish-row{flex:1 0 146px;border-top:0;border-right:1px solid #b5a16e23;padding-right:8px;min-height:59px}
+.cinematic-aquarium.aquarium-embedded .aquarium-fish-list>[data-fish]{flex:1 0 136px;border-top:0}
+.cinematic-aquarium.aquarium-embedded .aquarium-fish-list [data-fish]{min-height:59px}
+.cinematic-aquarium.aquarium-embedded.aq-immersive .aquarium-observatory{position:fixed;inset:0;left:0;top:0;width:100%;height:100%;display:flex;flex-direction:column;padding:20px;background:linear-gradient(90deg,#10130977,#15140c33,#0a0d0988),url('./images/sunset-room.webp') center/cover}
+.cinematic-aquarium.aquarium-embedded.aq-immersive .aquarium-scene{flex:1;min-height:0;height:auto}
+.cinematic-aquarium.aquarium-embedded.aq-immersive .aquarium-secondary-controls{width:auto;margin:8px auto 13px}
+.cinematic-aquarium.aquarium-embedded.aq-immersive .cinematic-dock{width:min(1040px,95%)}
+@media(max-width:650px){
+  .cinematic-aquarium.aquarium-embedded .cinematic-stage{padding:8px 10px 12px;gap:12px}
+  .cinematic-aquarium.aquarium-embedded .aquarium-scene{height:380px}
+  .cinematic-aquarium.aquarium-embedded .aquarium-secondary-controls{gap:4px;margin-bottom:12px}
+  .cinematic-aquarium.aquarium-embedded .cinematic-dock-button{min-height:61px;padding:10px 14px}
+  .cinematic-aquarium.aquarium-embedded .cinematic-panel-head h2{font-size:13px}
+  .cinematic-aquarium.aquarium-embedded.aq-immersive .aquarium-observatory{padding:10px}
+  .cinematic-aquarium.aquarium-embedded.aq-immersive .aquarium-scene{height:auto}
+  .cinematic-aquarium.aquarium-embedded.aq-immersive .cinematic-dock{width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .cinematic-aquarium .cinematic-stage:before,.cinematic-aquarium .cinematic-return{transition:none}
+}
+
+/* A sibling close-up stays above the copy and the observation canvas. */
+.cinematic-aquarium .fish-inspection{position:fixed;z-index:120;left:clamp(24px,4.5vw,94px);top:calc(var(--cinematic-header-height) + 8dvh);display:flex;flex-direction:column;width:min(360px,calc(100% - 32px));height:min(398px,70dvh);max-height:calc(100dvh - var(--cinematic-header-height) - 48px);overflow:hidden;border:1px solid #d1b47c8c;border-radius:19px;background:linear-gradient(145deg,#171c16,#0d140f);box-shadow:0 24px 65px #0009,inset 0 0 0 4px #2d36291f;backdrop-filter:none;color:#efe3ca}
+.cinematic-aquarium .fish-inspection[hidden]{display:none}
+.cinematic-aquarium .fish-inspection-header{position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex:none;margin:0;padding:17px 18px 12px;border-bottom:1px solid #baa17329;background:linear-gradient(110deg,#b49b5c0d,transparent)}
+.cinematic-aquarium .fish-inspection-eyebrow{display:block;font-size:8px;letter-spacing:.2em;color:#bda879;line-height:1.5}
+.cinematic-aquarium .fish-inspection-header h2{margin:7px 0 2px;font:normal 23px/1.35 var(--serif);letter-spacing:.035em;color:#f7e8c8}
+.cinematic-aquarium .fish-inspection-header p{margin:0;max-width:265px;font-size:10px;line-height:1.6;color:#bfb49c}
+.cinematic-aquarium #closeInspection{display:flex;align-items:center;justify-content:center;flex:none;width:33px;height:33px;margin:0;padding:7px;border:1px solid #ae96665c;border-radius:50%;background:#1c241b82;cursor:pointer}
+.cinematic-aquarium #closeInspection:hover{background:#72573377;border-color:#d6b783}
+.cinematic-aquarium #closeInspection:focus-visible{outline:2px solid #e8ce98;outline-offset:3px}
+.cinematic-aquarium .fish-inspection-view{position:relative;flex:1;min-height:100px;overflow:hidden;background:radial-gradient(ellipse at 50% 44%,#3e493323,#101b12a1 78%)}
+.cinematic-aquarium #inspectionCanvas{display:block;width:100%;height:100%;min-height:0;touch-action:none;cursor:grab}
+.cinematic-aquarium #inspectionCanvas:active{cursor:grabbing}
+.cinematic-aquarium #inspectionCanvas:focus-visible{outline:1px solid #e3c68d;outline-offset:-5px}
+.cinematic-aquarium .fish-inspection-hint{display:flex;align-items:center;justify-content:center;gap:8px;flex:none;margin:0;padding:12px 17px 14px;border-top:1px solid #baa17320;font-size:10px;line-height:1.5;letter-spacing:.035em;color:#c4b18d;background:#0d140c52}
+.cinematic-aquarium[data-light=night] .fish-inspection{border-color:#bfb89573;background:linear-gradient(145deg,#101b1f,#091215);box-shadow:0 24px 65px #000b,inset 0 0 0 4px #24455212}
+.cinematic-aquarium[data-light=night] .fish-inspection-view{background:radial-gradient(ellipse at 50% 44%,#31535927,#08161cad 78%)}
+.cinematic-aquarium.aq-immersive .fish-inspection,.cinematic-aquarium .aquarium-observatory:fullscreen .fish-inspection{top:28px;left:28px;max-height:min(440px,70dvh)}
+.cinematic-aquarium.aquarium-embedded .fish-inspection{top:18px;left:18px;max-height:min(440px,70dvh)}
+@media(max-width:1100px){
+  .cinematic-aquarium .cinematic-inspection-entry-note{margin:8px 0 0;font-size:9px}
+  .cinematic-aquarium .fish-inspection{top:auto;bottom:max(18px,env(safe-area-inset-bottom));left:18px;height:min(398px,66dvh);max-height:min(440px,70dvh)}
+}
+@media(max-width:650px){
+  .cinematic-aquarium .cinematic-inspection-entry-note{font-size:9px;margin-top:9px}
+  .cinematic-aquarium .fish-inspection,.cinematic-aquarium.aquarium-embedded .fish-inspection,.cinematic-aquarium.aq-immersive .fish-inspection,.cinematic-aquarium .aquarium-observatory:fullscreen .fish-inspection{top:auto;left:16px;bottom:max(16px,env(safe-area-inset-bottom));width:calc(100% - 32px);max-width:360px;height:min(390px,66dvh);max-height:min(440px,70dvh);border-radius:17px}
+  .cinematic-aquarium .fish-inspection-header{padding:15px 15px 11px}
+  .cinematic-aquarium .fish-inspection-header h2{font-size:21px;margin-top:5px}
+  .cinematic-aquarium .fish-inspection-header p{font-size:9px}
+  .cinematic-aquarium .fish-inspection-hint{padding:10px 14px 12px;font-size:9px}
+}

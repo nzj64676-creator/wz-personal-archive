@@ -1,0 +1,87 @@
+{
+  "library": "Phosphor Icons",
+  "license": "MIT",
+  "commit": "2b75f3ad12b420c9504ef05df8d2564a28f8500e",
+  "files": [
+    {
+      "file": "feed.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/diamond-light.svg",
+      "sha256": "dea4a4b7d94b06293cf324a8fb20f9b9eda7b4475c70eed3656df98840499608"
+    },
+    {
+      "file": "eye.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/eye-light.svg",
+      "sha256": "d7caa325711784ed9cda49b32da9ee49705fce80825b40c0ba43b82e14d216cf"
+    },
+    {
+      "file": "sun.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/sun-light.svg",
+      "sha256": "bc3557822da55c4ebe6f80d68a0a7992b13060c0754a0ad7953d2321530777f6"
+    },
+    {
+      "file": "volume.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/speaker-high-light.svg",
+      "sha256": "fb4956e09f9e66e62e10949fe59c8163c28eb43644cfb6e945ca0628fcd41b5a"
+    },
+    {
+      "file": "arrow-left.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/arrow-left-light.svg",
+      "sha256": "8825835a66e7f6111adf539ca971cf03996aae184e69b2b6d3a597943050eb3e"
+    },
+    {
+      "file": "heart.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/heart-light.svg",
+      "sha256": "31da0cda5c912f82683da466b76161b244275d34ac28b9099222925951df8b0c"
+    },
+    {
+      "file": "thermometer.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/thermometer-light.svg",
+      "sha256": "a5a2465d4bf6c469116479614695b87dcd6cbd766603403643499a3cf30ebe88"
+    },
+    {
+      "file": "droplets.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/drop-light.svg",
+      "sha256": "2067c983a7d443fa33515189fe1b21bece9e5a4deb5035302db8e300d3db5a7b"
+    },
+    {
+      "file": "filter.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/funnel-light.svg",
+      "sha256": "5b496dae4149c8b396b9543e8a79e1f964001f0614ccbf63d8574c380e934683"
+    },
+    {
+      "file": "leaf.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/leaf-light.svg",
+      "sha256": "f883e94d0e7639e717df412c04a234f7b55bcd9649b01b29f492e981dea6405b"
+    },
+    {
+      "file": "arrow-right.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/arrow-right-light.svg",
+      "sha256": "546e2ebfd0cae821c9a192ef8169eac2f1944688a373e3cb158316c311ca773a"
+    },
+    {
+      "file": "pause.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/pause-light.svg",
+      "sha256": "147247f306ee08381b5f43bfd2dda840b7f4d798e264eac86c3bb8ca6b0c3092"
+    },
+    {
+      "file": "reset.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/arrow-counter-clockwise-light.svg",
+      "sha256": "4fa31829e33a41171f3e5096cd19a9b7f00e4337944dee898f73be59d914ef8a"
+    },
+    {
+      "file": "moon.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/moon-light.svg",
+      "sha256": "949a1ab1483df14e4d25db4839d6430baed5adca66f50cd58026f3c7fa7c64c6"
+    },
+    {
+      "file": "close.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/x-light.svg",
+      "sha256": "7f3f44f5e9fdc40d7d8ecaf49c9b2cca95a6f7b944f81f7ae5d8d8bb674d8d91"
+    },
+    {
+      "file": "menu.svg",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/light/list-light.svg",
+      "sha256": "88b0c0129f0d5caa35694c71c0a0a55462517facfb052ba44f6507903785a101"
+    }
+  ]
+}
