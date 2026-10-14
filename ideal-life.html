@@ -22,12 +22,13 @@
     </div>
     <div class="ideal-view-scroll" id="idealViewScroll" tabindex="0" aria-label="互动全景，可以左右滚动浏览">
       <div class="ideal-scene" id="idealScene" data-time="morning">
-        <img class="ideal-scene-image" src="assets/ideal-life-scene.webp" alt="理想中的家：有钢琴、书桌、猫狗、阳光与种满绿植的阳台，远处是城市与山脉" fetchpriority="high"/>
+        <img class="ideal-scene-image" src="assets/ideal-life-scene.webp" alt="理想中的家：有钢琴、书桌上的玻璃金鱼缸、猫狗、阳光与种满绿植的阳台，远处是城市与山脉" fetchpriority="high"/>
+        <img class="ideal-scene-image ideal-scene-desk-layer" src="assets/ideal-life-desk-aquarium.webp" alt="" aria-hidden="true" fetchpriority="high"/>
         <div class="ideal-light-mood" aria-hidden="true"></div><div class="ideal-scene-shade" aria-hidden="true"></div>
         <div class="ideal-scene-head">
           <div class="ideal-kicker">WZ. / MY PRIVATE UNIVERSE</div>
           <h2>有光，有书，<br><em>有属于自己的时间。</em></h2>
-          <p>点击画面中的六个光点，逐个走进我想过的生活。</p>
+          <p>点击六个光点探索生活，也可以打开书桌上的金鱼缸。</p>
           <button type="button" class="ideal-btn-main" id="idealStartTour">开始探索这个家 <span>↗</span></button>
         </div>
         <button type="button" class="ideal-hotspot" style="--x:14%;--y:66%" data-spot="piano" aria-label="探索钢琴"><span class="ideal-hotspot-ring" aria-hidden="true"></span><span class="ideal-hotspot-label"><span>♫</span> 钢琴</span></button>
@@ -36,6 +37,10 @@
         <button type="button" class="ideal-hotspot" style="--x:74%;--y:66%" data-spot="reading" aria-label="探索阅读"><span class="ideal-hotspot-ring" aria-hidden="true"></span><span class="ideal-hotspot-label"><span>▤</span> 阅读</span></button>
         <button type="button" class="ideal-hotspot" style="--x:37%;--y:69%" data-spot="pets" aria-label="探索猫狗陪伴"><span class="ideal-hotspot-ring" aria-hidden="true"></span><span class="ideal-hotspot-label"><span>♡</span> 猫狗陪伴</span></button>
         <button type="button" class="ideal-hotspot" style="--x:53%;--y:78%" data-spot="home" aria-label="探索家的意义"><span class="ideal-hotspot-ring" aria-hidden="true"></span><span class="ideal-hotspot-label"><span>⌂</span> 我的空间</span></button>
+        <button type="button" id="idealDeskAquarium" class="ideal-desk-aquarium" aria-label="打开书桌上的互动玻璃金鱼缸" aria-haspopup="dialog" aria-controls="idealAquariumDialog">
+          <span class="desk-water-shimmer" aria-hidden="true"></span>
+          <span class="desk-tank-hint"><img src="assets/aquarium/icons/eye.svg" alt="" width="14" height="14">金鱼缸 · 近看</span>
+        </button>
         <div class="ideal-frame-corner corner-a" aria-hidden="true"></div><div class="ideal-frame-corner corner-b" aria-hidden="true"></div>
         <div class="ideal-scene-bottom"><div>AN ORDINARY DAY, BY DESIGN. <span>·</span> LIVE SLOWLY, THINK DEEPLY.</div><span id="idealTimeHint">08:00 / 清晨的光</span></div>
       </div>
@@ -79,7 +84,19 @@
       <button type="button" class="ideal-day-card" data-day="evening"><span>03 / 夜晚</span><strong>让一首钢琴曲慢慢结束。</strong><small>猫狗在身边，安静地把生活还给自己。</small><i>↗</i></button>
     </div>
   </section>
-  <section class="aquarium-entry wrap" id="aquariumEntry" aria-label="理想生活中的互动金鱼缸"><div><span>A LIVING DETAIL / QUIET WATER</span><h2>给安静的日常，留一缸流动的光。</h2><p>五尾金鱼、夕阳与水草。打开鱼缸，投下一点食物，慢慢观察。</p></div><div class="aquarium-entry-actions"><button id="openAquarium" type="button" aria-expanded="false" aria-controls="aquariumEntryFrame">打开互动鱼缸</button><a href="aquarium.html">独立观察 ↗</a></div><div id="aquariumEntryFrame" class="aquarium-entry-frame" hidden></div></section>
+  <section class="aquarium-entry wrap" id="aquariumEntry" aria-label="理想生活中的互动金鱼缸"><div><span>A LIVING DETAIL / QUIET WATER</span><h2>给安静的日常，留一缸流动的光。</h2><p>五尾金鱼、夕阳与水草。打开鱼缸，投下一点食物，慢慢观察。</p></div><div class="aquarium-entry-actions"><button id="openAquarium" type="button" aria-haspopup="dialog" aria-controls="idealAquariumDialog">打开互动鱼缸</button><a href="aquarium.html">独立观察 ↗</a></div></section>
+  <dialog id="idealAquariumDialog" class="ideal-aquarium-dialog" aria-labelledby="idealAquariumTitle">
+    <div class="ideal-aquarium-dialog-inner">
+      <div class="ideal-aquarium-dialog-head">
+        <div><span>WZ. / QUIET WATER</span><h2 id="idealAquariumTitle">书桌上的一缸安静</h2></div>
+        <div class="ideal-aquarium-dialog-actions">
+          <a href="aquarium.html" target="_blank" rel="noopener">独立打开 ↗</a>
+          <button type="button" id="idealAquariumClose" aria-label="关闭互动鱼缸"><img src="assets/aquarium/icons/close.svg" alt="" width="20" height="20"></button>
+        </div>
+      </div>
+      <div id="aquariumEntryFrame" class="ideal-aquarium-dialog-frame"></div>
+    </div>
+  </dialog>
   <section class="ideal-closing wrap"><span>THE FUTURE IS PERSONAL.</span><blockquote>“我向往的，不只是成功，<br>而是有能力把平凡的日子，<em>过成自己喜欢的样子。</em>”</blockquote><a class="ideal-back-link" href="notes.html">继续了解我的生活档案 ↗</a></section>
 </main>
 <footer class="footer"><div class="wrap footer-grid"><div><a class="brand footer-brand" href="index.html">WZ<span>.</span></a><p>理性求知，自由生长。<br>一个持续更新的个人数字档案。</p><div class="footer-contact"><a href="mailto:nzj64676@gmail.com" aria-label="通过电子邮件联系王振">邮箱 ↗</a><button type="button" data-copy="wz389272188" data-copy-label="复制微信号">微信：wz389272188 <span aria-hidden="true">⧉</span></button></div></div><div class="footer-links"><a href="index.html">首页 ↗</a><a href="identity.html">八维人格 ↗</a><a href="atlas.html">兴趣地图 ↗</a><a href="footprints.html">城市足迹 ↗</a><a href="dialog.html">观点互动 ↗</a><a href="ideal-life.html">理想生活 ↗</a><a href="notes.html">生活档案 ↗</a><a href="connect.html">联系我 ↗</a></div><div class="footer-end">MADE TO BE EXPLORED.<br>© 2026 WZ.<br>NOT A RESUME. A PERSON.</div></div></footer><script defer src="assets/app.js"></script><script defer src="assets/music.js"></script><script defer src="assets/ideal-life.js"></script><script defer src="assets/aquarium/entry.js"></script></body></html>
