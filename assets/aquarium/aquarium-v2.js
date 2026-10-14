@@ -16,8 +16,8 @@ const feedingPlane=new THREE.Plane(new THREE.Vector3(0,1,0),-1.25);
 const feedingFrontPlane=new THREE.Plane(new THREE.Vector3(0,0,1),0);
 let renderer,scene,camera,controls,environment,templates,sun,fill,hemisphere,lamp,inspection;
 let ready=false, paused=matchMedia('(prefers-reduced-motion: reduce)').matches, selected='dawn';
-let single=query.has('single'), detail=false, night=false, immersive=false, viewFromAbove=false, fullscreenConfirmed=false, expectedFullscreenExit=false;
-let armed=false, elapsed=0, lastFrame=0, frameCount=0, needsRender=true, transition=null, nightAmount=0, nextFoodId=0;
+let single=query.has('single'), detail=false, night=false, immersive=false, fullscreenConfirmed=false, expectedFullscreenExit=false;
+let armed=false, elapsed=0, lastFrame=0, frameCount=0, needsRender=true, nightAmount=0, nextFoodId=0;
 let pointerStart=null, toastTimer=0, lastMeal='', embeddedSuspended=false, feedTimes=0, waterSound=null, soundEnabled=false;
 const warmSun=new THREE.Color(0xffd0a0), coolSun=new THREE.Color(0x91b5df);
 const normalHint='鱼缸视角固定 · 指向金鱼滚轮近看 · 点击投喂';
@@ -56,12 +56,13 @@ function updateVisibility(){
   needsRender=true;
 }
 function setView(position,target,caption){
-  transition={from:camera.position.clone(),fromTarget:controls.target.clone(),to:position.clone(),target:target.clone(),start:performance.now()};
+  // The main aquarium camera only changes for initial framing / viewport resize.
+  camera.position.copy(position);controls.target.copy(target);controls.update();
   $('viewCaption').textContent=caption;needsRender=true;
 }
 function resetView(){
   closeInspection();updateVisibility();
-  viewFromAbove=false;frameTank();
+   frameTank();
   if(ready) updateStatus();
 }
 function frameTank(){
